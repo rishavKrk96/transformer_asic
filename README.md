@@ -4,7 +4,9 @@
 
 ---
 
-Summary : ASIC design from RTL to GDSII for a Low Power Dual Core Machine Learning Accelerator for Attention Mechanism in Transformers using a 1D Vector Processor Based Architecture. Developed the RTL for the accelerator in Verilog, synthesized the design on Synopsis Design Compiler, followed by floor planning, placement, clock tree synthesis, and routing on Cadence Innovus. Implemented techniques like pipelining in the MAC array to improve throughput, multicycle paths on long latency operations like fixed point divider to ease timing closure, a 4 phase req-ack handshake protocol for CDC between the two asynchronous cores, and Clock Gating to reduce dynamic power consumption.
+## Summary 
+
+ASIC design from RTL to GDSII for a Low Power Dual Core Machine Learning Accelerator for Attention Mechanism in Transformers using a 1D Vector Processor Based Architecture. Developed the RTL for the accelerator in Verilog, synthesized the design on Synopsis Design Compiler, followed by floor planning, placement, clock tree synthesis, and routing on Cadence Innovus. Implemented techniques like pipelining in the MAC array to improve throughput, multicycle paths on long latency operations like fixed point divider to ease timing closure, a 4 phase req-ack handshake protocol for CDC between the two asynchronous cores, and Clock Gating to reduce dynamic power consumption.
 
 
 ## 1. Baseline Design

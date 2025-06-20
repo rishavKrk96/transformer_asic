@@ -1,0 +1,392 @@
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_2__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_2__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_2__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_2__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_2_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_2_.QN = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_3_.QN = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.q0_reg_0_.Q = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_4_.Q = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_4_.Q = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_2_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_3_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_4_.QN = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_3_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_2__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_0_.Q = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_2__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_1_.Q = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_2__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_2_.Q = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_2__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_3_.Q = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_6__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_0_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_3__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_5__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_7__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_8__mac_col_inst.cnt_q_reg_1_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_1__mac_col_inst.cnt_q_reg_2_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.mac_array_instance.col_idx_4__mac_col_inst.cnt_q_reg_2_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.q0_reg_0_.Q = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_4_.Q = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_4_.Q = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_2_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_3_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.rd_ptr_reg_4_.QN = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.ofifo_inst.col_idx_0__fifo_instance.wr_ptr_reg_3_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_31_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_30_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_29_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_28_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_27_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_26_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_25_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_24_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_23_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_22_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_21_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_20_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_19_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_18_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_17_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_16_.Q = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_15_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_14_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_13_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_12_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_11_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_10_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_9_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_8_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_7_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_6_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_5_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_4_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.kmem_instance.Q_reg_0_.Q = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_31_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_30_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_29_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_28_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_27_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_26_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_25_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_24_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_23_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_22_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_21_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_20_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_19_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_18_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_17_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_16_.Q = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_15_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_14_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_13_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_12_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_11_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_10_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_9_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_8_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_7_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_6_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_5_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_4_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.qmem_instance.Q_reg_0_.Q = 1'b0;
+
+ 
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.kmem_add_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.kmem_add_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.kmem_add_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.kmem_add_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.kmem_add_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.kmem_add_reg_2_.QN = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.qmem_add_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.qmem_add_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.qmem_add_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.qmem_add_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.controller_inst.qmem_add_reg_2_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_4_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_5_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_6_.Q = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_2_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_3_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_4_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_5_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_1.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_6_.QN = 1'b0;
+
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_31_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_30_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_29_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_28_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_27_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_26_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_25_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_24_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_23_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_22_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_21_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_20_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_19_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_18_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_17_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_16_.Q = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_15_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_14_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_13_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_12_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_11_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_10_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_9_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_8_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_7_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_6_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_5_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_4_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.kmem_instance.Q_reg_0_.Q = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_31_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_30_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_29_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_28_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_27_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_26_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_25_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_24_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_23_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_22_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_21_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_20_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_19_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_18_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_17_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_16_.Q = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_15_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_14_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_13_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_12_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_11_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_10_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_9_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_8_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_7_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_6_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_5_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_4_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.qmem_instance.Q_reg_0_.Q = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.kmem_add_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.kmem_add_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.kmem_add_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.kmem_add_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.kmem_add_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.kmem_add_reg_2_.QN = 1'b0;
+
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.qmem_add_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.qmem_add_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.qmem_add_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.qmem_add_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.controller_inst.qmem_add_reg_2_.QN = 1'b0;
+
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_0_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_1_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_2_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_3_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_4_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_5_.Q = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_6_.Q = 1'b0;
+
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_0_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_1_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_2_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_3_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_4_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_5_.QN = 1'b0;
+deposit fullchip_tb.fullchip_instance.core_instance_2.norm_instance.fifo_top_instance.fifo_instance.wr_ptr_reg_6_.QN = 1'b0;

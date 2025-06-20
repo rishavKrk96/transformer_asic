@@ -1,0 +1,70 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory0[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory1[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory2[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory3[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory4[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory5[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory6[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory7[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.D[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.CEN}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.WEN}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_mem_rd}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_mem_wr}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.inst[28:0]}]}
+	} ]]
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.inst[28:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.inst[28:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.norm_mem_wr}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.norm_mem_rd}]}
+	} ]]
+
+waveform xview limits 0 435000ps

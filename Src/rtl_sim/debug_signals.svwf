@@ -1,0 +1,93 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.i_inst[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.query_q[63:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.key_q[63:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.out[18:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.reset}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.fifo_wr[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.ofifo_inst.in[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.ofifo_inst.wr[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.ofifo_inst.rd}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.ofifo_inst.o_valid}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.A[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.CLK}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.D[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.Q[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.WEN}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory0[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory1[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory2[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory3[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory4[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory5[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory6[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory7[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory8[151:0]}]}
+	} ]]
+
+waveform xview limits 66166ps 88267ps

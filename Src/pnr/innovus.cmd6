@@ -1,0 +1,106 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sat Mar 11 12:58:25 2023                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v19.17-s077_1 (64bit) 12/01/2020 11:09 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 19.17-s077_1 NR201130-0207/19_17-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+#@(#)CDS: AAE 19.17-s018 (64bit) 12/01/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 19.17-s022_1 () Nov 18 2020 03:10:35 ( )
+#@(#)CDS: SYNTECH 19.17-s005_1 () Oct 28 2020 05:12:49 ( )
+#@(#)CDS: CPE v19.17-s044
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+set init_pwr_net VDD
+set init_gnd_net VSS
+set init_verilog ../syn/fullchip.out.v
+set init_design_netlisttype Verilog
+set init_design_settop 1
+set init_top_cell fullchip
+set init_lef_file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef
+create_library_set -name WC_LIB -timing $worst_timing_lib
+create_library_set -name BC_LIB -timing $best_timing_lib
+create_rc_corner -name Cmax -cap_table $worst_captbl -T 125
+create_rc_corner -name Cmin -cap_table $best_captbl -T -40
+create_delay_corner -name WC -library_set WC_LIB -rc_corner Cmax
+create_delay_corner -name BC -library_set BC_LIB -rc_corner Cmin
+create_constraint_mode -name CON -sdc_file [list $sdc]
+create_analysis_view -name WC_VIEW -delay_corner WC -constraint_mode CON
+create_analysis_view -name BC_VIEW -delay_corner BC -constraint_mode CON
+init_design -setup WC_VIEW -hold BC_VIEW
+set_interactive_constraint_modes {CON}
+setDesignMode -process 65
+floorPlan -site core -r 1 0.50 10.0 10.0 10.0 10.0
+createPlaceBlockage -box {20 200 120 360}
+createPlaceBlockage -box {110 20 450 120}
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+addRing -spacing {top 2 bottom 2 left 2 right 2} -width {top 3 bottom 3 left 3 right 3} -layer {top M1 bottom M1 left M2 right M2} -center 1 -type core_rings -nets {VSS  VDD}
+setAddStripeMode -break_at block_ring
+addStripe -number_of_sets 20 -spacing 6 -layer M4 -width 2 -nets { VSS VDD }
+sroute
+timeDesign -preplace -prefix preplace
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.2 -pinDepth 0.5 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -edge 0 -layer 3 -spreadType center -spacing 2.0 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.2 -pinDepth 0.5 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 2 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+setDrawView ameba
+panPage 0 1
+panPage 0 1
+zoomBox 43.94550 331.34150 911.64300 706.14550
+zoomBox 103.78550 362.88950 730.69700 633.68550
+zoomBox 76.29150 348.39450 813.83400 666.97800
+zoomBox 5.89150 311.27900 1026.71150 752.22500
+zoomBox -91.54850 259.90750 1321.35150 870.21350
+zoomBox -153.51350 227.23900 1508.72200 945.24600
+zoomBox -11771.44550 -2651.17250 14565.85500 8725.29450
+zoomBox -13959.78150 -3193.34550 17025.27800 10190.73350
+zoomBox -16534.29450 -3831.19600 19918.71650 11914.77900
+zoomBox -11942.46300 -2847.84300 14394.83750 8528.62400
+zoomBox -7329.20800 -1859.90250 8845.18650 5126.67050
+zoomBox -5291.78850 -1423.58350 6394.21200 3624.21550
+zoomBox -3704.39900 -984.76600 4738.73650 2662.26900
+zoomBox -2537.86600 -697.58900 3562.30000 1937.39400
+zoomBox -1695.04550 -490.10350 2712.32500 1413.67200
+zoomBox -848.29300 -281.65000 1858.38400 887.50650
+zoomBox -646.15050 -231.88650 1654.52500 761.89650
+setDrawView fplan
+zoomBox -202.74050 522.68850 678.24500 501.29600
+selectObject Module core_instance
+zoomBox -230.60150 285.31700 805.85250 733.01600
+zoomBox -263.37900 242.49000 955.97900 769.19500
+zoomBox -301.94050 192.10500 1132.59850 811.75800
+zoomBox -347.30700 132.82900 1340.38600 861.83250
+zoomBox -400.42800 63.84750 1585.09400 921.49900
+zoomBox -462.92300 -17.30700 1872.98550 991.69500
+zoomBox -536.44650 -112.78300 2211.68100 1074.27800
+zoomBox -622.94450 -225.10800 2610.14650 1171.43450
+panPage -1 0
+deselectAll
+selectObject Module core_instance
+setDrawView place
+setDrawView place
+setDrawView ameba
+setDrawView ameba
+setDrawView fplan
+gui_select -rect {-48.75000 146.57450 1101.82600 520.99000}
+deselectAll
+selectObject Module core_instance
+setDrawView ameba
+zoomBox -1286.23450 -158.28700 1461.89350 1028.77400
+zoomBox -1025.59200 -101.48950 1310.31650 907.51250
+setDrawView place
+saveDesign floorplan.enc
+setPlaceMode -timingDriven true -reorderScan false -congEffort medium -modulePlan false
+setOptMode -effort high -powerEffort low -leakageToDynamicRatio 0.5 -fixFanoutLoad true -restruct true -verbose true
+place_opt_design
+saveDesign placement.enc

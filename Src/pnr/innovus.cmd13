@@ -1,0 +1,82 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Mon Mar 13 15:34:43 2023                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v19.17-s077_1 (64bit) 12/01/2020 11:09 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 19.17-s077_1 NR201130-0207/19_17-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+#@(#)CDS: AAE 19.17-s018 (64bit) 12/01/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 19.17-s022_1 () Nov 18 2020 03:10:35 ( )
+#@(#)CDS: SYNTECH 19.17-s005_1 () Oct 28 2020 05:12:49 ( )
+#@(#)CDS: CPE v19.17-s044
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+set init_pwr_net VDD
+set init_gnd_net VSS
+set init_verilog ../syn/fullchip.out.v
+set init_design_netlisttype Verilog
+set init_design_settop 1
+set init_top_cell fullchip
+set init_lef_file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef
+create_library_set -name WC_LIB -timing $worst_timing_lib
+create_library_set -name BC_LIB -timing $best_timing_lib
+create_rc_corner -name Cmax -cap_table $worst_captbl -T 125
+create_rc_corner -name Cmin -cap_table $best_captbl -T -40
+create_delay_corner -name WC -library_set WC_LIB -rc_corner Cmax
+create_delay_corner -name BC -library_set BC_LIB -rc_corner Cmin
+create_constraint_mode -name CON -sdc_file [list $sdc]
+create_analysis_view -name WC_VIEW -delay_corner WC -constraint_mode CON
+create_analysis_view -name BC_VIEW -delay_corner BC -constraint_mode CON
+init_design -setup WC_VIEW -hold BC_VIEW
+set_interactive_constraint_modes {CON}
+setDesignMode -process 65
+floorPlan -site core -r 1 0.50 10.0 10.0 10.0 10.0
+createPlaceBlockage -box {20 200 120 360}
+createPlaceBlockage -box {110 20 450 120}
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+addRing -spacing {top 2 bottom 2 left 2 right 2} -width {top 3 bottom 3 left 3 right 3} -layer {top M1 bottom M1 left M2 right M2} -center 1 -type core_rings -nets {VSS  VDD}
+setAddStripeMode -break_at block_ring
+addStripe -number_of_sets 20 -spacing 6 -layer M4 -width 2 -nets { VSS VDD }
+sroute
+timeDesign -preplace -prefix preplace
+zoomBox -228.20100 -224.51050 1781.94950 1106.85400
+floorPlan -site core -r 1 0.50 10.0 10.0 10.0 10.0
+createPlaceBlockage -box {10 300 120 460}
+createPlaceBlockage -box {180 20 550 120}
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+addRing -spacing {top 2 bottom 2 left 2 right 2} -width {top 3 bottom 3 left 3 right 3} -layer {top M1 bottom M1 left M2 right M2} -center 1 -type core_rings -nets {VSS  VDD}
+setAddStripeMode -break_at block_ring
+addStripe -number_of_sets 20 -spacing 6 -layer M4 -width 2 -nets { VSS VDD }
+sroute
+timeDesign -preplace -prefix preplace
+selectWire 1.0000 1.0000 768.8000 4.0000 1 VDD
+fit
+deselectAll
+zoomBox -68.91400 -7.40750 597.60700 434.04300
+zoomBox 27.45300 8.79150 375.38100 239.23150
+zoomBox -109.64250 -6.94150 812.88100 604.06500
+zoomBox -194.18250 -16.64300 1082.66750 829.04100
+gui_select -rect {-39.36250 49.94600 30.55650 -18.30800}
+deselectAll
+floorPlan -site core -r 1 0.50 10.0 10.0 10.0 10.0
+createPlaceBlockage -box {10 300 120 460}
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+addRing -spacing {top 2 bottom 2 left 2 right 2} -width {top 3 bottom 3 left 3 right 3} -layer {top M1 bottom M1 left M2 right M2} -center 1 -type core_rings -nets {VSS  VDD}
+setAddStripeMode -break_at block_ring
+addStripe -number_of_sets 20 -spacing 6 -layer M4 -width 2 -nets { VSS VDD }
+sroute
+timeDesign -preplace -prefix preplace
+set ptngSprNoRefreshPins 1
+setPtnPinStatus -cell fullchip -pin clk1 -status unplaced -silent
+set ptngSprNoRefreshPins 0
+ptnSprRefreshPinsAndBlockages
+zoomBox -113.24850 134.16050 553.27600 575.61350
+zoomBox -62.98900 218.89700 284.94200 449.33900

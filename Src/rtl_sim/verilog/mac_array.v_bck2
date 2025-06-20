@@ -1,0 +1,100 @@
+// Created by prof. Mingu Kang @VVIP Lab in UCSD ECE department
+// Please do not spread this code without permission 
+module mac_array (clk, reset, in, out, fifo_wr, inst , four_b_eight_b);
+
+parameter col = 8;
+parameter bw = 8;
+parameter bw_psum = 2*bw+4;
+parameter pr = 8;
+
+output [bw_psum*col-1:0] out;
+input  [pr*bw-1:0] in;
+input  clk, reset;
+input  [1:0] inst; // [1]: execute, [0]: load 
+input four_b_eight_b;
+
+output [col-1:0] fifo_wr;
+
+//wire four_b_eight_b;
+
+wire   [col*bw_psum-1:0] psum;
+wire   [2*(col+1)-1:0] inst_temp;
+wire   [2*(col+1)*bw*pr-1:0] q_temp;
+
+wire   [bw_psum*col-1:0] temp_out;
+
+wire  [bw_psum*col-1:0] left_shifted_psum;
+
+wire  [bw_psum*col-1:0] latched_psum;
+
+reg   [bw_psum*col-1:0] temp_out_reg;
+
+
+wire  [col-1:0] fifo_wr_temp;
+
+genvar i;
+
+//for (i=0; i < col ; i=i+1) begin
+//  assign fifo_wr[i] = inst_temp[2*i+1] ;
+//end
+
+assign inst_temp[1:0]    = inst;
+assign q_temp[bw*pr-1:0] = in;
+
+
+always@(posedge clk)
+begin
+ temp_out_reg <= temp_out;
+end
+
+
+
+assign fifo_wr[0] = (four_b_eight_b)?(fifo_wr_temp[1]):(fifo_wr_temp[0]);
+assign fifo_wr[2] = (four_b_eight_b)?(fifo_wr_temp[3]):(fifo_wr_temp[2]);
+assign fifo_wr[4] = (four_b_eight_b)?(fifo_wr_temp[5]):(fifo_wr_temp[4]);
+assign fifo_wr[6] = (four_b_eight_b)?(fifo_wr_temp[7]):(fifo_wr_temp[6]);
+
+
+assign fifo_wr[1] = fifo_wr_temp[1];
+assign fifo_wr[3] = fifo_wr_temp[3];
+assign fifo_wr[5] = fifo_wr_temp[5];
+assign fifo_wr[7] = fifo_wr_temp[7];
+
+
+for (i=1; i < col+1 ; i=i+1) begin : col_idx
+   mac_col #(.bw(bw), .bw_psum(bw_psum), .pr(pr), .col_id(i)) mac_col_inst (
+        .q_in( q_temp[pr*bw*i-1    :pr*bw*(i-1)]), 
+        .q_out(q_temp[pr*bw*(i+1)-1:pr*bw*i]), 
+        .clk(clk), 
+        .reset(reset), 
+        .fifo_wr(fifo_wr_temp[i-1]),
+        .i_inst(inst_temp[2*i-1:2*(i-1)]),     
+        .o_inst(inst_temp[2*(i+1)-1:2*(i)]),     
+	.out(temp_out[bw_psum*i-1 : bw_psum*(i-1)])
+   );
+end
+
+
+assign left_shifted_psum[bw_psum*(0+2)-1:bw_psum*0] = (four_b_eight_b)?({{(bw_psum - bw){temp_out[bw_psum*(0+2)-1]}},temp_out[bw_psum*(0+2)-1 : bw_psum*(0+2)-bw],temp_out[bw_psum*(0+2)-1 :bw_psum*(0+1)],{(bw){1'b0}}}):0;
+assign left_shifted_psum[bw_psum*(2+2)-1:bw_psum*2] = (four_b_eight_b)?({{(bw_psum - bw){temp_out[bw_psum*(2+2)-1]}},temp_out[bw_psum*(2+2)-1 : bw_psum*(2+2)-bw],temp_out[bw_psum*(2+2)-1 :bw_psum*(2+1)],{(bw){1'b0}}}):0;
+assign left_shifted_psum[bw_psum*(4+2)-1:bw_psum*4] = (four_b_eight_b)?({{(bw_psum - bw){temp_out[bw_psum*(4+2)-1]}},temp_out[bw_psum*(4+2)-1 : bw_psum*(4+2)-bw],temp_out[bw_psum*(4+2)-1 :bw_psum*(4+1)],{(bw){1'b0}}}):0;
+assign left_shifted_psum[bw_psum*(6+2)-1:bw_psum*6] = (four_b_eight_b)?({{(bw_psum - bw){temp_out[bw_psum*(6+2)-1]}},temp_out[bw_psum*(6+2)-1 : bw_psum*(6+2)-bw],temp_out[bw_psum*(6+2)-1 :bw_psum*(6+1)],{(bw){1'b0}}}):0;
+
+
+assign latched_psum[bw_psum*(0+2)-1:bw_psum*0] = (four_b_eight_b)?({{(bw_psum){temp_out_reg[bw_psum*(0+1) - 1]}} , (temp_out_reg[bw_psum*(0+1)-1:bw_psum*(0)] )}):0;
+assign latched_psum[bw_psum*(2+2)-1:bw_psum*2] = (four_b_eight_b)?({{(bw_psum){temp_out_reg[bw_psum*(2+1) - 1]}} , (temp_out_reg[bw_psum*(2+1)-1:bw_psum*(2)] )}):0;
+assign latched_psum[bw_psum*(4+2)-1:bw_psum*4] = (four_b_eight_b)?({{(bw_psum){temp_out_reg[bw_psum*(4+1) - 1]}} , (temp_out_reg[bw_psum*(4+1)-1:bw_psum*(4)] )}):0;
+assign latched_psum[bw_psum*(6+2)-1:bw_psum*6] = (four_b_eight_b)?({{(bw_psum){temp_out_reg[bw_psum*(6+1) - 1]}} , (temp_out_reg[bw_psum*(6+1)-1:bw_psum*(6)] )}):0;
+
+
+assign out[bw_psum*(0+2)-1:bw_psum*0] = (four_b_eight_b)?(latched_psum[bw_psum*(0+2)-1:bw_psum*0]  + left_shifted_psum[bw_psum*(0+2)-1:bw_psum*0] ):(temp_out[bw_psum*(0+2)-1:bw_psum*0]);
+assign out[bw_psum*(2+2)-1:bw_psum*2] = (four_b_eight_b)?(latched_psum[bw_psum*(2+2)-1:bw_psum*0]  + left_shifted_psum[bw_psum*(2+2)-1:bw_psum*0] ):(temp_out[bw_psum*(2+2)-1:bw_psum*2]);
+assign out[bw_psum*(4+2)-1:bw_psum*4] = (four_b_eight_b)?(latched_psum[bw_psum*(4+2)-1:bw_psum*0]  + left_shifted_psum[bw_psum*(4+2)-1:bw_psum*0] ):(temp_out[bw_psum*(4+2)-1:bw_psum*4]);
+assign out[bw_psum*(6+2)-1:bw_psum*6] = (four_b_eight_b)?(latched_psum[bw_psum*(6+2)-1:bw_psum*0]  + left_shifted_psum[bw_psum*(6+2)-1:bw_psum*0] ):(temp_out[bw_psum*(6+2)-1:bw_psum*6]);
+
+//assign out[bw_psum*(0+2)-1:bw_psum*0] = (four_b_eight_b)?({{(bw_psum){temp_out_reg[bw_psum*(0+1) - 1]}} , (temp_out_reg[bw_psum*(0+1)-1:bw_psum*(0)] )}  + {{(bw_psum - bw){temp_out[bw_psum*(0+2)-1]}},temp_out[bw_psum*(0+2)-1 : bw_psum*(0+2)-bw],(temp_out[bw_psum*(0+2)-1 :bw_psum*(0+1)] << bw)}):(temp_out[bw_psum*(0+2)-1:bw_psum*0]);
+//assign out[bw_psum*(2+2)-1:bw_psum*2] = (four_b_eight_b)?({{(bw_psum){temp_out_reg[bw_psum*(2+1) - 1]}} , (temp_out_reg[bw_psum*(2+1)-1:bw_psum*(2)] )}  + {{(bw_psum - bw){temp_out[bw_psum*(2+2)-1]}},temp_out[bw_psum*(2+2)-1 : bw_psum*(2+2)-bw],(temp_out[bw_psum*(2+2)-1 :bw_psum*(2+1)] << bw)}):(temp_out[bw_psum*(2+2)-1:bw_psum*2]);
+//assign out[bw_psum*(4+2)-1:bw_psum*4] = (four_b_eight_b)?({{(bw_psum){temp_out_reg[bw_psum*(4+1) - 1]}} , (temp_out_reg[bw_psum*(4+1)-1:bw_psum*(4)] )}  + {{(bw_psum - bw){temp_out[bw_psum*(4+2)-1]}},temp_out[bw_psum*(4+2)-1 : bw_psum*(4+2)-bw],(temp_out[bw_psum*(4+2)-1 :bw_psum*(4+1)] << bw)}):(temp_out[bw_psum*(4+2)-1:bw_psum*4]);
+//assign out[bw_psum*(6+2)-1:bw_psum*6] = (four_b_eight_b)?({{(bw_psum){temp_out_reg[bw_psum*(6+1) - 1]}} , (temp_out_reg[bw_psum*(6+1)-1:bw_psum*(6)] )}  + {{(bw_psum - bw){temp_out[bw_psum*(6+2)-1]}},temp_out[bw_psum*(6+2)-1 : bw_psum*(6+2)-bw],(temp_out[bw_psum*(6+2)-1 :bw_psum*(6+1)] << bw)}):(temp_out[bw_psum*(6+2)-1:bw_psum*6]);
+
+endmodule

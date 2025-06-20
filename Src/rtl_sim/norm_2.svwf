@@ -1,0 +1,171 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory0[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory1[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory2[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory3[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory4[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory5[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory6[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory7[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.D[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.CEN}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.WEN}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_mem_rd}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_mem_wr}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.inst[28:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.inst[28:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.inst[28:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.norm_mem_wr}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.norm_mem_rd}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.A[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.CEN}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.CLK}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.D[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.Q[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.WEN}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory0[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory1[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory8[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_sum_mem_instance.memory9[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_in[18:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.sum_out[22:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.pmem_out[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_wr}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.pmem_rd}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.pmem_out_reg[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.pmem_out[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.A[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_instance.out_final[18:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_instance.fifo_out[18:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_instance.div}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_instance.div_out[37:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_instance.sum_q[22:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.pmem_out[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.out[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.pmem_rd_d}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_mem_rd_d}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_mem_rd}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_out_merged[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.norm_out_merged_rd[151:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.div}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.reset_norm}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.count_div[3:0]}]}
+	} ]]
+
+waveform xview limits 35600ps 237456ps

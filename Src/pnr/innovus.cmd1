@@ -1,0 +1,394 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sat Mar  4 20:05:35 2023                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v19.17-s077_1 (64bit) 12/01/2020 11:09 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 19.17-s077_1 NR201130-0207/19_17-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+#@(#)CDS: AAE 19.17-s018 (64bit) 12/01/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 19.17-s022_1 () Nov 18 2020 03:10:35 ( )
+#@(#)CDS: SYNTECH 19.17-s005_1 () Oct 28 2020 05:12:49 ( )
+#@(#)CDS: CPE v19.17-s044
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+set init_pwr_net VDD
+set init_gnd_net VSS
+set init_verilog ../syn/fullchip.out.v
+set init_design_netlisttype Verilog
+set init_design_settop 1
+set init_top_cell fullchip
+set init_lef_file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef
+create_library_set -name WC_LIB -timing $worst_timing_lib
+create_library_set -name BC_LIB -timing $best_timing_lib
+create_rc_corner -name Cmax -cap_table $worst_captbl -T 125
+create_rc_corner -name Cmin -cap_table $best_captbl -T -40
+create_delay_corner -name WC -library_set WC_LIB -rc_corner Cmax
+create_delay_corner -name BC -library_set BC_LIB -rc_corner Cmin
+create_constraint_mode -name CON -sdc_file [list $sdc]
+create_analysis_view -name WC_VIEW -delay_corner WC -constraint_mode CON
+create_analysis_view -name BC_VIEW -delay_corner BC -constraint_mode CON
+init_design -setup WC_VIEW -hold BC_VIEW
+set_interactive_constraint_modes {CON}
+setDesignMode -process 65
+floorPlan -site core -r 1 0.50 10.0 10.0 10.0 10.0
+timeDesign -preplace -prefix preplace
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+addRing -spacing {top 2 bottom 2 left 2 right 2} -width {top 3 bottom 3 left 3 right 3} -layer {top M1 bottom M1 left M2 right M2} -center 1 -type core_rings -nets {VSS  VDD}
+setAddStripeMode -break_at block_ring
+addStripe -number_of_sets 2 -spacing 6 -layer M4 -width 2 -nets { VSS VDD }
+sroute
+fit
+zoomBox -138.25050 339.09300 503.81000 575.15150
+zoomBox -18.51750 442.58000 316.64250 565.80400
+zoomBox 32.61750 495.02300 207.57400 559.34700
+zoomBox 46.56550 520.06900 137.89400 553.64650
+zoomBox 53.93500 533.26950 101.61000 550.79750
+zoomBox 61.75000 542.20600 79.73150 548.81700
+zoomBox 49.11050 527.75650 115.10450 552.01950
+zoomBox -21.75750 446.73750 313.45250 569.98000
+zoomBox -259.29050 177.40500 970.88400 629.68800
+zoomBox 139.39950 356.06900 781.55950 592.16400
+zoomBox 392.60650 486.29800 634.79800 575.34150
+zoomBox 437.63950 508.66800 612.62300 573.00200
+zoomBox 470.17550 524.83050 596.60150 571.31200
+zoomBox 414.93650 488.89950 657.12900 577.94350
+zoomBox 224.08600 364.76000 866.25100 600.85700
+zoomBox -56.49300 182.25550 1173.69300 634.54300
+zoomBox -19.69250 421.86350 444.27200 592.44350
+zoomBox -1.03850 505.26650 173.94600 569.60100
+zoomBox 4.96400 529.58850 96.30850 563.17200
+zoomBox 10.49100 546.62750 44.94200 559.29350
+zoomBox 7.08100 537.06450 73.08000 561.32950
+zoomBox -4.93450 504.02550 170.06150 568.36400
+zoomBox 5.02300 536.74750 71.02500 561.01350
+zoomBox -0.35200 518.90950 126.08750 565.39600
+zoomBox -17.73350 420.98950 446.28500 591.58950
+zoomBox -28.07350 368.90550 614.16800 605.03050
+zoomBox -451.22200 -120.01050 1905.71350 746.53500
+zoomBox -3175.25100 -2818.30200 8796.52850 1583.21500
+fit
+zoomBox -327.25050 35.61150 902.73300 487.82450
+zoomBox -155.47650 81.89650 733.18700 408.62050
+zoomBox -565.00050 -28.45050 1137.39950 597.45000
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+set sprCreateIeRingLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeThreshold 1.0
+zoomBox -43.67300 302.95400 598.38650 539.01200
+zoomBox 107.21750 398.87400 442.37700 522.09800
+zoomBox 185.98300 448.94500 360.93900 513.26900
+zoomBox 227.09850 475.08200 318.42800 508.66000
+zoomBox 260.19550 495.17350 285.08550 504.32450
+zoomBox 267.92950 499.91750 277.31750 503.36900
+selectWire 10.0000 503.0350 562.4000 503.3650 1 VDD
+setLayerPreference M1 -isVisible 0
+setLayerPreference M1 -isVisible 1
+setLayerPreference M1 -isVisible 0
+setLayerPreference M1 -isVisible 1
+setLayerPreference M4 -isVisible 0
+setLayerPreference M4 -isVisible 1
+fit
+setLayerPreference M4 -isVisible 0
+setLayerPreference M4 -isVisible 1
+zoomBox 112.77500 328.70100 754.83450 564.75900
+zoomBox 321.65850 424.39850 656.81800 547.62250
+zoomBox 433.30150 473.07550 608.25750 537.39950
+zoomBox 496.12750 496.78700 587.45700 530.36500
+fit
+floorPlan -site core -r 1 0.50 10.0 10.0 10.0 10.0
+timeDesign -preplace -prefix preplace
+globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+addRing -spacing {top 2 bottom 2 left 2 right 2} -width {top 3 bottom 3 left 3 right 3} -layer {top M1 bottom M1 left M2 right M2} -center 1 -type core_rings -nets {VSS  VDD}
+setAddStripeMode -break_at block_ring
+addStripe -number_of_sets 20 -spacing 6 -layer M4 -width 2 -nets { VSS VDD }
+sroute
+deselectAll
+zoomBox -137.77450 107.27100 750.88900 433.99500
+zoomBox 152.82350 199.58850 487.98450 322.81300
+zoomBox 237.97900 228.98050 412.93550 293.30450
+zoomBox 282.36950 244.38350 373.69900 277.96150
+zoomBox 237.97600 228.97950 412.93650 293.30500
+zoomBox 85.22800 175.96850 549.13150 346.52600
+zoomBox -319.78000 35.41000 910.24850 487.63950
+zoomBox 17.04050 155.39450 659.12550 391.46200
+zoomBox 119.11500 191.83100 583.02200 362.39000
+zoomBox 246.14700 237.17650 488.31100 326.21000
+zoomBox 312.45900 260.84700 438.87100 307.32350
+zoomBox 192.85800 218.15450 528.04050 341.38700
+zoomBox 17.02800 155.39000 659.13400 391.46500
+zoomBox -319.80600 35.15300 910.26750 487.39900
+zoomBox 115.47900 162.99650 757.58500 399.07150
+zoomBox 333.15050 225.31500 668.33450 348.54800
+zoomBox 477.76100 264.22250 604.17650 310.70000
+zoomBox 532.21850 278.89650 579.89650 296.42550
+zoomBox 547.04150 283.11000 571.93150 292.26100
+zoomBox 554.72500 285.37700 567.71800 290.15400
+zoomBox 540.89050 281.25300 575.34400 293.92000
+zoomBox 504.20750 270.31800 595.56300 303.90550
+zoomBox 406.94450 241.32500 649.17250 330.38200
+zoomBox 263.95200 198.70050 727.98700 369.30650
+zoomBox -9.97500 117.04600 878.97050 443.87350
+zoomBox -534.73300 -39.37850 1168.20750 586.72050
+zoomBox 120.59500 159.83450 762.85850 395.96750
+zoomBox 323.18200 199.23850 658.44800 322.50150
+zoomBox 472.79150 226.94900 599.23950 273.43850
+zoomBox 529.61800 237.91400 577.30850 255.44800
+zoomBox 550.04150 243.85850 568.02950 250.47200
+zoomBox 557.77600 246.12500 564.56100 248.61950
+zoomBox 548.50750 243.38900 566.50050 250.00450
+zoomBox 523.96050 236.19100 571.67200 253.73250
+zoomBox 487.87400 225.60900 579.27600 259.21350
+zoomBox 522.68350 235.40650 570.39650 252.94850
+zoomBox 546.25950 242.21600 564.25450 248.83200
+zoomBox 540.86150 240.23650 565.76800 249.39350
+zoomBox 522.68350 233.90250 570.39900 251.44550
+zoomBox 507.06700 229.41050 573.11000 253.69150
+selectWire 560.4000 1.0000 562.4000 568.0000 4 VDD
+setLayerPreference M2 -isVisible 0
+setLayerPreference M2 -isVisible 1
+setLayerPreference M4 -isVisible 0
+setLayerPreference M4 -isVisible 1
+setLayerPreference M4 -isVisible 0
+setLayerPreference M4 -isVisible 1
+zoomBox 467.91600 204.02200 643.02700 268.40300
+fit
+deselectAll
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 0.6 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 1 -spreadType start -spacing 0.8 -start 0.0 0.0 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 0.6 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -edge 0 -layer 1 -spreadType start -spacing 0.8 -offsetStart 25 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+setPinAssignMode -pinEditInBatch false
+zoomBox -292.96800 4.59500 595.69550 331.31900
+zoomBox -150.96700 21.84450 312.92250 192.39700
+zoomBox -38.14750 35.54850 88.25900 82.02300
+zoomBox -13.14200 45.99650 21.30450 58.66100
+zoomBox -23.02450 42.19900 42.96550 66.46050
+zoomBox -57.16550 29.08000 117.80550 93.40950
+zoomBox -107.35850 9.79300 227.83400 133.02900
+zoomBox -201.28550 -34.27700 440.83900 201.80500
+zoomBox -276.75900 -69.68900 611.99550 257.06850
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 0.6 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -edge 0 -layer 1 -spreadType start -spacing 2.0 -offsetStart 25 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+setPinAssignMode -pinEditInBatch false
+zoomBox -144.29350 -23.96700 319.64350 146.60300
+zoomBox -75.46700 0.31500 166.71200 89.35400
+zoomBox -54.60950 7.67350 120.36550 72.00450
+zoomBox -20.78650 19.60650 45.20700 43.86950
+zoomBox -54.61450 7.67150 120.36900 72.00550
+zoomBox -144.30550 -23.97200 319.65900 146.60800
+zoomBox -276.16550 -70.49250 612.64550 256.28550
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.0 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -edge 0 -layer 1 -spreadType start -spacing 2.0 -offsetStart 25 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.6 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -edge 0 -layer 1 -spreadType start -spacing 2.0 -offsetStart 25 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+setPinAssignMode -pinEditInBatch false
+zoomBox -111.38600 -15.09300 223.82950 108.15150
+zoomBox -45.00150 7.87400 81.42700 54.35650
+zoomBox -25.23750 14.92900 40.76000 39.19350
+zoomBox -10.34600 20.81950 14.54700 29.97150
+zoomBox -26.04850 15.19650 39.95600 39.46350
+zoomBox -45.33900 6.71900 81.10750 53.20800
+zoomBox -114.39300 -23.41650 220.87950 99.84900
+zoomBox -27.79800 13.84550 63.56150 47.43450
+zoomBox -12.25000 19.67200 35.44100 37.20600
+zoomBox -4.52400 22.46650 13.46350 29.07950
+zoomBox -2.23600 23.40700 7.15450 26.85950
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.2 -pinDepth 1.6 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -edge 0 -layer 1 -spreadType start -spacing 2.0 -offsetStart 25 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+setPinAssignMode -pinEditInBatch false
+zoomBox -4.98150 22.27850 13.01000 28.89300
+zoomBox -2.22000 23.59600 7.17300 27.04950
+zoomBox -5.16850 20.37800 19.73900 29.53550
+zoomBox -12.08950 11.69750 53.95350 35.97850
+zoomBox -30.44000 -11.31950 144.67250 53.06200
+zoomBox -79.09500 -72.34650 385.21350 98.36000
+zoomBox -208.09950 -234.15750 1023.00200 218.46650
+zoomBox -472.01450 -538.33950 1886.39100 328.74650
+zoomBox -971.58000 -1097.41400 3546.38700 563.65150
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.2 -pinDepth 1.6 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -edge 0 -layer 1 -spreadType center -spacing 2.0 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+setPinAssignMode -pinEditInBatch false
+zoomBox -3035.93100 -3127.07550 8943.31700 1277.18750
+fit
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.2 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.2 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -edge 3 -layer 1 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.2 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 0.6 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.2 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType start -spacing 0.6 -offsetStart 25 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+zoomBox -359.79550 -22.28400 870.18800 429.92900
+zoomBox -150.64050 -13.96350 491.41850 222.09450
+zoomBox -41.36750 -5.95250 293.79200 117.27150
+zoomBox 4.23950 4.36800 179.19550 68.69200
+zoomBox -42.81200 -7.50150 292.35100 115.72400
+zoomBox -18.18450 -3.96800 156.77450 60.35700
+zoomBox -4.90450 -0.67750 86.42650 32.90100
+zoomBox -39.41350 -6.92450 135.54950 57.40200
+zoomBox -16.64200 -4.17000 74.69000 29.40900
+zoomBox -2.72150 -2.45950 31.72400 10.20450
+zoomBox 0.04750 -1.99150 18.02900 4.61950
+zoomBox -3.06000 -3.75550 31.38900 8.91000
+zoomBox -12.50850 -7.55350 53.48700 16.71050
+zoomBox -7.42300 -4.03250 27.02900 8.63400
+zoomBox -3.18800 -2.39500 9.80800 2.38300
+zoomBox -1.44250 -1.54850 3.46000 0.25400
+zoomBox -3.49850 -2.90550 9.50150 1.87400
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.2 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 2 -layer 1 -spreadType center -spacing 0.6 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+zoomBox -40.33650 -17.07250 25.70150 7.20700
+zoomBox -415.48250 -191.93050 227.11650 44.32600
+zoomBox -2099.86650 -980.54400 1164.14350 219.49450
+zoomBox -10567.87350 -4913.73100 6011.28050 1181.72300
+zoomBox -1491.56250 -882.77950 1772.45050 317.26000
+zoomBox -112.00800 -243.74400 1119.01450 208.85100
+zoomBox -2040.14750 -1220.92200 2477.53000 440.03700
+fit
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.2 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 0.6 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+zoomBox -42.76900 -26.68000 845.89450 300.04400
+zoomBox 245.24050 -19.59550 709.12850 150.95650
+zoomBox 454.97300 -13.10100 629.92900 51.22300
+zoomBox 529.88300 -7.88700 595.86850 16.37300
+zoomBox 557.46800 -5.50350 582.35550 3.64650
+zoomBox 561.78950 -4.67200 579.77100 1.93900
+zoomBox 564.79250 -3.81450 577.78450 0.96200
+zoomBox 568.11100 -1.95500 574.89350 0.53850
+zoomBox 569.85100 -0.97500 573.39150 0.32650
+zoomBox 570.77700 -0.47450 572.62550 0.20500
+zoomBox 571.53550 -0.23850 572.50250 0.11700
+zoomBox 569.31350 -0.93000 572.86450 0.37550
+zoomBox 561.15450 -3.46900 574.19250 1.32450
+zoomBox 550.88550 -6.66450 575.86350 2.51900
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.2 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 2 -layer 1 -spreadType center -spacing 0.6 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.2 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 2 -layer 1 -spreadType center -spacing 0.6 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+zoomBox 449.84450 -27.52800 625.45450 37.03650
+zoomBox -30.69400 -126.75300 861.30600 201.19750
+zoomBox -2560.23300 -909.54600 1970.58300 756.24350
+zoomBox -7666.13150 -2591.61700 4347.18600 1825.17200
+zoomBox -2540.54900 -728.63450 1990.26950 937.15600
+zoomBox -238.69900 30.91100 995.90850 484.82400
+zoomBox 388.53450 237.38250 724.95450 361.07000
+zoomBox 529.08000 286.90900 655.96150 333.55800
+zoomBox 448.64400 224.21400 785.06950 347.90350
+zoomBox 239.13500 61.44250 1131.15900 389.40200
+zoomBox -68.87300 -176.67200 1639.96500 451.59550
+zoomBox -658.92250 -632.82450 2614.67800 570.74000
+zoomBox 96.63150 -35.47750 1331.26900 418.44650
+zoomBox 363.18600 196.43150 828.83000 367.62900
+zoomBox 414.62850 238.41000 751.05700 362.10050
+zoomBox 513.08500 306.99300 639.96950 353.64300
+zoomBox 551.13750 333.18350 598.99300 350.77800
+zoomBox 561.98500 340.01700 586.96750 349.20200
+zoomBox 568.49300 344.25750 577.91750 347.72250
+zoomBox 570.78250 345.63350 574.33800 346.94050
+zoomBox 565.06900 342.38150 583.13250 349.02250
+zoomBox 536.06150 325.98800 627.81550 359.72200
+zoomBox 562.73150 335.37850 587.73500 344.57100
+zoomBox 568.95400 337.56900 578.38450 341.03600
+zoomBox 571.25650 338.30450 573.82800 339.25000
+zoomBox 565.90850 336.62600 584.00100 343.27800
+zoomBox 540.48250 328.65000 632.38750 362.43950
+zoomBox 510.84900 322.85150 686.91050 387.58200
+zoomBox 555.98950 329.44600 603.96500 347.08450
+zoomBox 564.07100 330.62600 589.11500 339.83350
+zoomBox 568.98350 332.92050 578.43100 336.39400
+zoomBox 570.29550 333.52650 575.22800 335.34000
+zoomBox 561.19850 329.14650 595.88300 341.89850
+zoomBox 517.89600 308.11150 694.07850 372.88650
+zoomBox 552.03200 319.17200 618.48100 343.60250
+zoomBox 565.26750 323.46350 590.32900 332.67750
+zoomBox 569.37550 325.20850 578.82850 328.68400
+zoomBox 570.53750 325.97800 575.47350 327.79300
+zoomBox 568.38250 324.58800 581.47650 329.40200
+zoomBox 559.12850 318.62950 607.18200 336.29650
+zoomBox 507.09850 285.22250 751.18450 374.96250
+zoomBox 447.61500 246.97150 915.20800 418.88550
+zoomBox 240.42100 114.81500 1480.23050 570.64050
+zoomBox -310.43250 -235.59350 2976.88550 973.01450
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 0.6 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 2 -layer 1 -spreadType center -spacing 0.2 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 0.6 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 0.2 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 0.6 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 0.8 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 1.0 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.1 -pinDepth 0.8 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.2 -pinDepth 0.7 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.2 -pinDepth 0.7 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -edge 3 -layer 1 -spreadType center -spacing 2.0 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+setPinAssignMode -pinEditInBatch false
+fit
+saveDesign floorplan.enc
+setPlaceMode -timingDriven true -reorderScan false -congEffort medium -modulePlan false
+setOptMode -effort high -powerEffort high -leakageToDynamicRatio 0.5 -fixFanoutLoad true -restruct true -verbose true
+place_opt_design

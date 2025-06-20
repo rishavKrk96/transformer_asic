@@ -1,0 +1,128 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.q_in[31:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.a[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.b[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.out[10:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.product0[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.product1[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.product2[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.product3[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.product4[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.product5[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.product6[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.product7[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.out[87:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.temp_out[87:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.fifo_wr[7:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.temp_out_reg[87:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory0[87:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.psum_mem_instance.memory1[87:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[2].mac_col_inst.out[10:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_8in_instance.out[10:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.mem_in[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.qmem_instance.memory0[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.qmem_instance.memory1[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.qmem_instance.memory2[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.fifo_wr[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.out[95:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.temp_out_reg[95:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.temp_out[95:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[7].mac_col_inst.out[11:0]}]}
+	} ]]
+waveform format $id -radix %x
+set id [waveform add -signals [subst  {
+	{[format {fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[8].mac_col_inst.out[11:0]}]}
+	} ]]
+waveform format $id -radix %x
+
+waveform xview limits 65606ps 68866ps

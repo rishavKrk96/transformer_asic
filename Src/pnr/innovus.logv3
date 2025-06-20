@@ -1,0 +1,1221 @@
+[03/04 21:17:39      0s] 
+[03/04 21:17:39      0s] Cadence Innovus(TM) Implementation System.
+[03/04 21:17:39      0s] Copyright 2019 Cadence Design Systems, Inc. All rights reserved worldwide.
+[03/04 21:17:39      0s] 
+[03/04 21:17:39      0s] Version:	v19.17-s077_1, built Tue Dec 1 11:09:44 PST 2020
+[03/04 21:17:39      0s] Options:	
+[03/04 21:17:39      0s] Date:		Sat Mar  4 21:17:39 2023
+[03/04 21:17:39      0s] Host:		ieng6-ece-06.ucsd.edu (x86_64 w/Linux 3.10.0-1160.80.1.el7.x86_64) (4cores*8cpus*Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz 20480KB)
+[03/04 21:17:39      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[03/04 21:17:39      0s] 
+[03/04 21:17:39      0s] License:
+[03/04 21:17:39      0s] 		invs	Innovus Implementation System	19.1	checkout succeeded
+[03/04 21:17:39      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[03/04 21:17:56     14s] @(#)CDS: Innovus v19.17-s077_1 (64bit) 12/01/2020 11:09 (Linux 2.6.32-431.11.2.el6.x86_64)
+[03/04 21:17:56     14s] @(#)CDS: NanoRoute 19.17-s077_1 NR201130-0207/19_17-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+[03/04 21:17:56     14s] @(#)CDS: AAE 19.17-s018 (64bit) 12/01/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+[03/04 21:17:56     14s] @(#)CDS: CTE 19.17-s022_1 () Nov 18 2020 03:10:35 ( )
+[03/04 21:17:56     14s] @(#)CDS: SYNTECH 19.17-s005_1 () Oct 28 2020 05:12:49 ( )
+[03/04 21:17:56     14s] @(#)CDS: CPE v19.17-s044
+[03/04 21:17:56     14s] @(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+[03/04 21:17:56     14s] @(#)CDS: OA 22.60-s011 Tue Jun 16 12:27:00 2020
+[03/04 21:17:56     14s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[03/04 21:17:56     14s] @(#)CDS: RCDB 11.14.18
+[03/04 21:17:56     14s] @(#)CDS: STYLUS 19.10-s021_1 (10/28/2020 08:51 PDT)
+[03/04 21:17:56     14s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_1628_ieng6-ece-06.ucsd.edu_anijhawan_iGgVC2.
+
+[03/04 21:17:56     14s] Change the soft stacksize limit to 0.2%RAM (64 mbytes). Set global soft_stack_size_limit to change the value.
+[03/04 21:17:56     14s] 
+[03/04 21:17:56     14s] **INFO:  MMMC transition support version v31-84 
+[03/04 21:17:56     14s] 
+[03/04 21:17:56     14s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[03/04 21:17:56     14s] <CMD> suppressMessage ENCEXT-2799
+[03/04 21:17:57     15s] <CMD> win
+[03/04 21:18:17     19s] <CMD> set init_pwr_net VDD
+[03/04 21:18:17     19s] <CMD> set init_gnd_net VSS
+[03/04 21:18:17     19s] <CMD> set init_verilog ../syn/fullchip.out.v
+[03/04 21:18:17     19s] <CMD> set init_design_netlisttype Verilog
+[03/04 21:18:17     19s] <CMD> set init_design_settop 1
+[03/04 21:18:17     19s] <CMD> set init_top_cell fullchip
+[03/04 21:18:17     19s] <CMD> set init_lef_file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef
+[03/04 21:18:17     19s] <CMD> create_library_set -name WC_LIB -timing $worst_timing_lib
+[03/04 21:18:17     19s] <CMD> create_library_set -name BC_LIB -timing $best_timing_lib
+[03/04 21:18:17     19s] <CMD> create_rc_corner -name Cmax -cap_table $worst_captbl -T 125
+[03/04 21:18:17     19s] <CMD> create_rc_corner -name Cmin -cap_table $best_captbl -T -40
+[03/04 21:18:17     19s] <CMD> create_delay_corner -name WC -library_set WC_LIB -rc_corner Cmax
+[03/04 21:18:17     19s] <CMD> create_delay_corner -name BC -library_set BC_LIB -rc_corner Cmin
+[03/04 21:18:17     19s] <CMD> create_constraint_mode -name CON -sdc_file [list $sdc]
+[03/04 21:18:17     19s] <CMD> create_analysis_view -name WC_VIEW -delay_corner WC -constraint_mode CON
+[03/04 21:18:17     19s] <CMD> create_analysis_view -name BC_VIEW -delay_corner BC -constraint_mode CON
+[03/04 21:18:17     19s] <CMD> init_design -setup WC_VIEW -hold BC_VIEW
+[03/04 21:18:18     19s] 
+[03/04 21:18:18     19s] Loading LEF file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef ...
+[03/04 21:18:18     19s] WARNING (LEFPARS-2007): NAMESCASESENSITIVE statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 28.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 867.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 877.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1014.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1024.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1161.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1171.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1308.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1318.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1372.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1383.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1604.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2019): TOPOFSTACKONLY statement is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1614.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2022): DIRECTION statement in VIARULE is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1769.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2022): DIRECTION statement in VIARULE is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1771.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2021): turn-via is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1772.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2022): DIRECTION statement in VIARULE is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1776.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2022): DIRECTION statement in VIARULE is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1778.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2021): turn-via is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1779.
+[03/04 21:18:18     19s] WARNING (LEFPARS-2022): DIRECTION statement in VIARULE is obsolete in version 5.6 and later.
+[03/04 21:18:18     19s] The LEF parser will ignore this statement.
+[03/04 21:18:18     19s] To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /home/linux/ieng6/ee260bwi23/public/PDKdata/lef/tcbn65gplus_8lmT2.lef at line 1783.
+[03/04 21:18:18     19s] Set DBUPerIGU to M2 pitch 400.
+[03/04 21:18:18     19s] **WARN: (IMPLF-200):	Pin 'I' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[03/04 21:18:18     19s] Type 'man IMPLF-200' for more detail.
+[03/04 21:18:18     19s] 
+[03/04 21:18:18     19s] viaInitial starts at Sat Mar  4 21:18:18 2023
+viaInitial ends at Sat Mar  4 21:18:18 2023
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+[03/04 21:18:18     19s] Reading WC_LIB timing library '/home/linux/ieng6/ee260bwi23/public/PDKdata/lib/tcbn65gpluswc.lib' ...
+[03/04 21:18:19     20s] Read 811 cells in library 'tcbn65gpluswc' 
+[03/04 21:18:19     20s] Reading BC_LIB timing library '/home/linux/ieng6/ee260bwi23/public/PDKdata/lib/tcbn65gplusbc.lib' ...
+[03/04 21:18:20     21s] Read 811 cells in library 'tcbn65gplusbc' 
+[03/04 21:18:20     21s] Ending "PreSetAnalysisView" (total cpu=0:00:02.5, real=0:00:02.0, peak res=601.5M, current mem=513.1M)
+[03/04 21:18:20     21s] *** End library_loading (cpu=0.04min, real=0.03min, mem=28.0M, fe_cpu=0.37min, fe_real=0.68min, fe_mem=740.7M) ***
+[03/04 21:18:20     21s] #% Begin Load netlist data ... (date=03/04 21:18:20, mem=513.1M)
+[03/04 21:18:20     21s] *** Begin netlist parsing (mem=740.7M) ***
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR4D4' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR4D4' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR4D2' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR4D2' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR4D1' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR4D1' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR4D0' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR4D0' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3D4' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3D4' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3D2' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3D2' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3D1' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3D1' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3D0' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3D0' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2D4' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2D4' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR2D2' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR2D2' is defined in LEF but not in the timing library.
+[03/04 21:18:20     21s] Type 'man IMPVL-159' for more detail.
+[03/04 21:18:20     21s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[03/04 21:18:20     21s] To increase the message display limit, refer to the product command reference manual.
+[03/04 21:18:20     21s] Created 811 new cells from 2 timing libraries.
+[03/04 21:18:20     21s] Reading netlist ...
+[03/04 21:18:20     21s] Backslashed names will retain backslash and a trailing blank character.
+[03/04 21:18:20     22s] Reading verilog netlist '../syn/fullchip.out.v'
+[03/04 21:18:21     22s] 
+[03/04 21:18:21     22s] *** Memory Usage v#1 (Current mem = 751.707M, initial mem = 283.785M) ***
+[03/04 21:18:21     22s] *** End netlist parsing (cpu=0:00:00.3, real=0:00:01.0, mem=751.7M) ***
+[03/04 21:18:21     22s] #% End Load netlist data ... (date=03/04 21:18:21, total cpu=0:00:00.3, real=0:00:01.0, peak res=541.1M, current mem=541.1M)
+[03/04 21:18:21     22s] Set top cell to fullchip.
+[03/04 21:18:21     22s] Hooked 1622 DB cells to tlib cells.
+[03/04 21:18:21     22s] Ending "BindLib:" (total cpu=0:00:00.2, real=0:00:00.0, peak res=567.9M, current mem=567.9M)
+[03/04 21:18:21     22s] Starting recursive module instantiation check.
+[03/04 21:18:21     22s] No recursion found.
+[03/04 21:18:21     22s] Building hierarchical netlist for Cell fullchip ...
+[03/04 21:18:21     22s] *** Netlist is unique.
+[03/04 21:18:21     22s] Setting Std. cell height to 3600 DBU (smallest netlist inst).
+[03/04 21:18:21     22s] ** info: there are 1658 modules.
+[03/04 21:18:21     22s] ** info: there are 32283 stdCell insts.
+[03/04 21:18:21     22s] 
+[03/04 21:18:21     22s] *** Memory Usage v#1 (Current mem = 827.133M, initial mem = 283.785M) ***
+[03/04 21:18:21     22s] **WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[03/04 21:18:21     22s] Type 'man IMPFP-3961' for more detail.
+[03/04 21:18:21     22s] **WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[03/04 21:18:21     22s] Type 'man IMPFP-3961' for more detail.
+[03/04 21:18:21     22s] Set Default Net Delay as 1000 ps.
+[03/04 21:18:21     22s] Set Default Net Load as 0.5 pF. 
+[03/04 21:18:21     22s] Set Default Input Pin Transition as 0.1 ps.
+[03/04 21:18:21     23s] Extraction setup Started 
+[03/04 21:18:21     23s] Initializing multi-corner RC extraction with 2 active RC Corners ...
+[03/04 21:18:21     23s] Reading Capacitance Table File /home/linux/ieng6/ee260bwi23/public/PDKdata/captbl/cln65g+_1p08m+alrdl_top2_cworst.captable ...
+[03/04 21:18:21     23s] **WARN: (IMPEXT-2760):	Layer M9 specified in the cap table is ignored because it is greater than the maximum number of layers, 8, specified in the technology LEF file. Check the cap table for the invalid layer specification.
+[03/04 21:18:21     23s] **WARN: (IMPEXT-2771):	Via VIA_8 specified in the cap table is ignored because its top layer, M9, is greater than the maximum number of layers, 8, specified in the technology LEF file. Check the cap table for the invalid layer specification.
+[03/04 21:18:21     23s] **WARN: (IMPEXT-2801):	Resistance values are not provided in the Cap Table. Sheet resistance defined in the LEF file will be used.
+[03/04 21:18:21     23s] **WARN: (IMPEXT-2710):	Basic Cap table for layer M9 is ignored because the layer is not specified in the technology LEF file.
+[03/04 21:18:21     23s] Reading Capacitance Table File /home/linux/ieng6/ee260bwi23/public/PDKdata/captbl/cln65g+_1p08m+alrdl_top2_cbest.captable ...
+[03/04 21:18:21     23s] **WARN: (IMPEXT-2760):	Layer M9 specified in the cap table is ignored because it is greater than the maximum number of layers, 8, specified in the technology LEF file. Check the cap table for the invalid layer specification.
+[03/04 21:18:21     23s] **WARN: (IMPEXT-2771):	Via VIA_8 specified in the cap table is ignored because its top layer, M9, is greater than the maximum number of layers, 8, specified in the technology LEF file. Check the cap table for the invalid layer specification.
+[03/04 21:18:21     23s] **WARN: (IMPEXT-2801):	Resistance values are not provided in the Cap Table. Sheet resistance defined in the LEF file will be used.
+[03/04 21:18:21     23s] **WARN: (IMPEXT-2710):	Basic Cap table for layer M9 is ignored because the layer is not specified in the technology LEF file.
+[03/04 21:18:21     23s] Importing multi-corner RC tables ... 
+[03/04 21:18:21     23s] Summary of Active RC-Corners : 
+[03/04 21:18:21     23s]  
+[03/04 21:18:21     23s]  Analysis View: WC_VIEW
+[03/04 21:18:21     23s]     RC-Corner Name        : Cmax
+[03/04 21:18:21     23s]     RC-Corner Index       : 0
+[03/04 21:18:21     23s]     RC-Corner Temperature : 125 Celsius
+[03/04 21:18:21     23s]     RC-Corner Cap Table   : '/home/linux/ieng6/ee260bwi23/public/PDKdata/captbl/cln65g+_1p08m+alrdl_top2_cworst.captable'
+[03/04 21:18:21     23s]     RC-Corner PreRoute Res Factor         : 1
+[03/04 21:18:21     23s]     RC-Corner PreRoute Cap Factor         : 1
+[03/04 21:18:21     23s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[03/04 21:18:21     23s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[03/04 21:18:21     23s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[03/04 21:18:21     23s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[03/04 21:18:21     23s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[03/04 21:18:21     23s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[03/04 21:18:21     23s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[03/04 21:18:21     23s]  
+[03/04 21:18:21     23s]  Analysis View: BC_VIEW
+[03/04 21:18:21     23s]     RC-Corner Name        : Cmin
+[03/04 21:18:21     23s]     RC-Corner Index       : 1
+[03/04 21:18:21     23s]     RC-Corner Temperature : -40 Celsius
+[03/04 21:18:21     23s]     RC-Corner Cap Table   : '/home/linux/ieng6/ee260bwi23/public/PDKdata/captbl/cln65g+_1p08m+alrdl_top2_cbest.captable'
+[03/04 21:18:21     23s]     RC-Corner PreRoute Res Factor         : 1
+[03/04 21:18:21     23s]     RC-Corner PreRoute Cap Factor         : 1
+[03/04 21:18:21     23s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[03/04 21:18:21     23s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[03/04 21:18:22     23s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[03/04 21:18:22     23s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[03/04 21:18:22     23s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[03/04 21:18:22     23s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[03/04 21:18:22     23s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[03/04 21:18:22     23s] LayerId::1 widthSet size::4
+[03/04 21:18:22     23s] LayerId::2 widthSet size::4
+[03/04 21:18:22     23s] LayerId::3 widthSet size::4
+[03/04 21:18:22     23s] LayerId::4 widthSet size::4
+[03/04 21:18:22     23s] LayerId::5 widthSet size::4
+[03/04 21:18:22     23s] LayerId::6 widthSet size::4
+[03/04 21:18:22     23s] LayerId::7 widthSet size::4
+[03/04 21:18:22     23s] LayerId::8 widthSet size::4
+[03/04 21:18:22     23s] Updating RC grid for preRoute extraction ...
+[03/04 21:18:22     23s] Initializing multi-corner capacitance tables ... 
+[03/04 21:18:22     23s] Initializing multi-corner resistance tables ...
+[03/04 21:18:22     23s] Preroute length aware model : LLS: 2-3 ; HLS: 3-5 ; rDens: 0.000000 ; uaWl: 0.000000 ; uaWlH: 0.000000 ; aWlH: 0.000000 ; Pmax: 0.850000 ; wcR: 0.000000 ; newSi: 0.000000 ; pMod: 82 ; 
+[03/04 21:18:22     23s] *Info: initialize multi-corner CTS.
+[03/04 21:18:22     23s] Ending "SetAnalysisView" (total cpu=0:00:00.1, real=0:00:00.0, peak res=761.4M, current mem=582.5M)
+[03/04 21:18:22     23s] Reading timing constraints file '../syn/constraints/fullchip.sdc' ...
+[03/04 21:18:22     23s] Current (total cpu=0:00:23.5, real=0:00:43.0, peak res=773.4M, current mem=773.4M)
+[03/04 21:18:22     23s] **WARN: (TCLNL-330):	set_input_delay on clock root 'clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File ../syn/constraints/fullchip.sdc, Line 9).
+[03/04 21:18:22     23s] 
+[03/04 21:18:22     23s] INFO (CTE): Reading of timing constraints file ../syn/constraints/fullchip.sdc completed, with 1 WARNING
+[03/04 21:18:22     23s] Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=791.3M, current mem=791.3M)
+[03/04 21:18:22     23s] Current (total cpu=0:00:23.6, real=0:00:43.0, peak res=791.3M, current mem=791.3M)
+[03/04 21:18:22     23s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[03/04 21:18:22     23s] Creating Cell Server ...(0, 1, 1, 1)
+[03/04 21:18:22     23s] Summary for sequential cells identification: 
+[03/04 21:18:22     23s]   Identified SBFF number: 199
+[03/04 21:18:22     23s]   Identified MBFF number: 0
+[03/04 21:18:22     23s]   Identified SB Latch number: 0
+[03/04 21:18:22     23s]   Identified MB Latch number: 0
+[03/04 21:18:22     23s]   Not identified SBFF number: 0
+[03/04 21:18:22     23s]   Not identified MBFF number: 0
+[03/04 21:18:22     23s]   Not identified SB Latch number: 0
+[03/04 21:18:22     23s]   Not identified MB Latch number: 0
+[03/04 21:18:22     23s]   Number of sequential cells which are not FFs: 104
+[03/04 21:18:22     23s] Total number of combinational cells: 497
+[03/04 21:18:22     23s] Total number of sequential cells: 303
+[03/04 21:18:22     23s] Total number of tristate cells: 11
+[03/04 21:18:22     23s] Total number of level shifter cells: 0
+[03/04 21:18:22     23s] Total number of power gating cells: 0
+[03/04 21:18:22     23s] Total number of isolation cells: 0
+[03/04 21:18:22     23s] Total number of power switch cells: 0
+[03/04 21:18:22     23s] Total number of pulse generator cells: 0
+[03/04 21:18:22     23s] Total number of always on buffers: 0
+[03/04 21:18:22     23s] Total number of retention cells: 0
+[03/04 21:18:22     23s] List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD3 BUFFD4 BUFFD6 BUFFD8 BUFFD12 BUFFD16 CKBD1 CKBD0 CKBD2 CKBD3 CKBD4 CKBD6 CKBD8 CKBD12 CKBD16
+[03/04 21:18:22     23s] Total number of usable buffers: 18
+[03/04 21:18:22     23s] List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+[03/04 21:18:22     23s] Total number of unusable buffers: 9
+[03/04 21:18:22     23s] List of usable inverters: CKND1 CKND0 CKND2 CKND3 CKND4 CKND6 CKND8 CKND12 CKND16 INVD1 INVD0 INVD2 INVD3 INVD4 INVD6 INVD8 INVD12 INVD16
+[03/04 21:18:22     23s] Total number of usable inverters: 18
+[03/04 21:18:22     23s] List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+[03/04 21:18:22     23s] Total number of unusable inverters: 9
+[03/04 21:18:22     23s] List of identified usable delay cells:
+[03/04 21:18:22     23s] Total number of identified usable delay cells: 0
+[03/04 21:18:22     23s] List of identified unusable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+[03/04 21:18:22     23s] Total number of identified unusable delay cells: 9
+[03/04 21:18:22     23s] Creating Cell Server, finished. 
+[03/04 21:18:22     23s] 
+[03/04 21:18:22     23s] All delay cells are dont_use. Buffers will be used to fix hold violations.
+[03/04 21:18:22     23s] Deleting Cell Server ...
+[03/04 21:18:22     23s] 
+[03/04 21:18:22     23s] *** Summary of all messages that are not suppressed in this session:
+[03/04 21:18:22     23s] Severity  ID               Count  Summary                                  
+[03/04 21:18:22     23s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[03/04 21:18:22     23s] WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+[03/04 21:18:22     23s] WARNING   IMPEXT-2710          2  Basic Cap table for layer M%d is ignored...
+[03/04 21:18:22     23s] WARNING   IMPEXT-2760          2  Layer M%d specified in the cap table is ...
+[03/04 21:18:22     23s] WARNING   IMPEXT-2771          2  Via %s specified in the cap table is ign...
+[03/04 21:18:22     23s] WARNING   IMPEXT-2801          2  Resistance values are not provided in th...
+[03/04 21:18:22     23s] WARNING   IMPVL-159         1622  Pin '%s' of cell '%s' is defined in LEF ...
+[03/04 21:18:22     23s] WARNING   TCLNL-330            1  set_input_delay on clock root '%s' is no...
+[03/04 21:18:22     23s] *** Message Summary: 1634 warning(s), 0 error(s)
+[03/04 21:18:22     23s] 
+[03/04 21:18:22     23s] <CMD> set_interactive_constraint_modes {CON}
+[03/04 21:18:22     23s] <CMD> setDesignMode -process 65
+[03/04 21:18:22     23s] ##  Process: 65            (User Set)               
+[03/04 21:18:22     23s] ##     Node: (not set)                           
+[03/04 21:18:22     23s] 
+##  Check design process and node:  
+##  Design tech node is not set.
+
+[03/04 21:18:22     23s] Applying the recommended capacitance filtering threshold values for 65nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+[03/04 21:18:22     23s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[03/04 21:18:22     23s] 	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+[03/04 21:18:22     23s] 	The accuracy mode for postRoute effortLevel low extraction will be set to 'high'.
+[03/04 21:18:22     23s] 	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+[03/04 21:18:35     26s] <CMD> floorPlan -site core -r 1 0.50 10.0 10.0 10.0 10.0
+[03/04 21:18:35     26s] **WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[03/04 21:18:35     26s] Type 'man IMPFP-3961' for more detail.
+[03/04 21:18:35     26s] **WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in LEF/OA library. Cannot make calculations for this site type unless standard cell models of this type exist in the LEF/OA library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF/OA to avoid this message.
+[03/04 21:18:35     26s] Type 'man IMPFP-3961' for more detail.
+[03/04 21:18:35     26s] **WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+[03/04 21:18:35     26s] <CMD> timeDesign -preplace -prefix preplace
+[03/04 21:18:35     26s] Setting timing_disable_library_data_to_data_checks to 'true'.
+[03/04 21:18:35     26s] Setting timing_disable_user_data_to_data_checks to 'true'.
+[03/04 21:18:35     26s] Set Using Default Delay Limit as 101.
+[03/04 21:18:35     26s] **WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
+[03/04 21:18:35     26s] Setting High Fanout Nets ( > 100 ) as ideal temporarily for -prePlace option
+[03/04 21:18:35     26s] Set Default Net Delay as 0 ps.
+[03/04 21:18:35     26s] Set Default Net Load as 0 pF. 
+[03/04 21:18:35     26s] Effort level <high> specified for reg2reg path_group
+[03/04 21:18:36     27s] OPERPROF: Starting spInitSiteArr at level 1, MEM:1108.3M
+[03/04 21:18:36     27s] OPERPROF:   Starting spiInitFpSiteArr at level 2, MEM:1108.3M
+[03/04 21:18:36     27s] Use non-trimmed site array because memory saving is not enough.
+[03/04 21:18:36     27s] OPERPROF:     Starting RoutingBlockageFromWireViaStBox at level 3, MEM:1111.6M
+[03/04 21:18:36     27s] OPERPROF:     Finished RoutingBlockageFromWireViaStBox at level 3, CPU:0.000, REAL:0.000, MEM:1111.6M
+[03/04 21:18:36     27s] OPERPROF:   Finished spiInitFpSiteArr at level 2, CPU:0.090, REAL:0.089, MEM:1111.6M
+[03/04 21:18:36     27s] OPERPROF: Finished spInitSiteArr at level 1, CPU:0.100, REAL:0.100, MEM:1111.6M
+[03/04 21:18:36     27s] OPERPROF: Starting spSiteCleanup(true) at level 1, MEM:1111.6M
+[03/04 21:18:36     27s] OPERPROF: Finished spSiteCleanup(true) at level 1, CPU:0.000, REAL:0.001, MEM:1108.3M
+[03/04 21:18:36     27s] Starting delay calculation for Setup views
+[03/04 21:18:37     28s] AAE DB initialization (MEM=1131.17 CPU=0:00:00.3 REAL=0:00:00.0) 
+[03/04 21:18:37     28s] #################################################################################
+[03/04 21:18:37     28s] # Design Stage: PreRoute
+[03/04 21:18:37     28s] # Design Name: fullchip
+[03/04 21:18:37     28s] # Design Mode: 65nm
+[03/04 21:18:37     28s] # Analysis Mode: MMMC Non-OCV 
+[03/04 21:18:37     28s] # Parasitics Mode: No SPEF/RCDB
+[03/04 21:18:37     28s] # Signoff Settings: SI Off 
+[03/04 21:18:37     28s] #################################################################################
+[03/04 21:18:37     28s] Calculate delays in BcWc mode...
+[03/04 21:18:37     28s] Topological Sorting (REAL = 0:00:00.0, MEM = 1136.1M, InitMEM = 1131.2M)
+[03/04 21:18:37     28s] Start delay calculation (fullDC) (1 T). (MEM=1136.11)
+[03/04 21:18:38     29s] Start AAE Lib Loading. (MEM=1147.62)
+[03/04 21:18:38     29s] End AAE Lib Loading. (MEM=1176.24 CPU=0:00:00.0 Real=0:00:00.0)
+[03/04 21:18:38     29s] End AAE Lib Interpolated Model. (MEM=1176.24 CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[03/04 21:18:38     29s] First Iteration Infinite Tw... 
+[03/04 21:18:42     33s] Total number of fetched objects 33992
+[03/04 21:18:42     33s] End Timing Check Calculation. (CPU Time=0:00:00.2, Real Time=0:00:00.0)
+[03/04 21:18:42     33s] End delay calculation. (MEM=1283.02 CPU=0:00:03.9 REAL=0:00:04.0)
+[03/04 21:18:42     33s] End delay calculation (fullDC). (MEM=1255.94 CPU=0:00:05.0 REAL=0:00:05.0)
+[03/04 21:18:42     33s] *** CDM Built up (cpu=0:00:05.2  real=0:00:05.0  mem= 1255.9M) ***
+[03/04 21:18:43     34s] *** Done Building Timing Graph (cpu=0:00:06.6 real=0:00:07.0 totSessionCpu=0:00:34.4 mem=1255.9M)
+[03/04 21:18:44     35s] 
+------------------------------------------------------------
+          timeDesign Summary                             
+------------------------------------------------------------
+
+Setup views included:
+ WC_VIEW 
+
++--------------------+---------+---------+---------+
+|     Setup mode     |   all   | reg2reg | default |
++--------------------+---------+---------+---------+
+|           WNS (ns):| -0.046  | -0.046  |  0.000  |
+|           TNS (ns):| -51.072 | -51.072 |  0.000  |
+|    Violating Paths:|  1879   |  1879   |    0    |
+|          All Paths:|  17880  |  10910  |  11096  |
++--------------------+---------+---------+---------+
+
+Density: 49.999%
+------------------------------------------------------------
+Set Using Default Delay Limit as 1000.
+[03/04 21:18:44     35s] Resetting back High Fanout Nets as non-ideal
+[03/04 21:18:44     35s] Set Default Net Delay as 1000 ps.
+[03/04 21:18:44     35s] Set Default Net Load as 0.5 pF. 
+[03/04 21:18:44     35s] Reported timing to dir ./timingReports
+[03/04 21:18:44     35s] Total CPU time: 9.09 sec
+[03/04 21:18:44     35s] Total Real time: 9.0 sec
+[03/04 21:18:44     35s] Total Memory Usage: 1188.417969 Mbytes
+[03/04 21:18:44     35s] 
+[03/04 21:18:44     35s] =============================================================================================
+[03/04 21:18:44     35s]  Final TAT Report for timeDesign
+[03/04 21:18:44     35s] =============================================================================================
+[03/04 21:18:44     35s]  Step Name                  Count        Real  (       % )      Step Total Real / CPU  Scale
+[03/04 21:18:44     35s] ---------------------------------------------------------------------------------------------
+[03/04 21:18:44     35s] [ ViewPruning            ]      1   0:00:00.0  (   0.0 % )     0:00:00.0 /  0:00:00.0    0.0
+[03/04 21:18:44     35s] [ TimingUpdate           ]      1   0:00:00.7  (   8.3 % )     0:00:06.6 /  0:00:06.6    1.0
+[03/04 21:18:44     35s] [ FullDelayCalc          ]      1   0:00:05.8  (  64.6 % )     0:00:05.8 /  0:00:05.9    1.0
+[03/04 21:18:44     35s] [ OptSummaryReport       ]      1   0:00:00.3  (   2.9 % )     0:00:07.6 /  0:00:07.7    1.0
+[03/04 21:18:44     35s] [ TimingReport           ]      1   0:00:00.0  (   0.0 % )     0:00:00.5 /  0:00:00.5    1.0
+[03/04 21:18:44     35s] [ GenerateReports        ]      1   0:00:00.2  (   2.7 % )     0:00:00.2 /  0:00:00.2    1.0
+[03/04 21:18:44     35s] [ ReportAnalysisSummary  ]      2   0:00:00.5  (   5.6 % )     0:00:00.5 /  0:00:00.5    1.0
+[03/04 21:18:44     35s] [ MISC                   ]          0:00:01.4  (  15.8 % )     0:00:01.4 /  0:00:01.4    1.0
+[03/04 21:18:44     35s] ---------------------------------------------------------------------------------------------
+[03/04 21:18:44     35s]  timeDesign TOTAL                   0:00:09.0  ( 100.0 % )     0:00:09.0 /  0:00:09.1    1.0
+[03/04 21:18:44     35s] ---------------------------------------------------------------------------------------------
+[03/04 21:18:44     35s] 
+[03/04 21:18:44     35s] <CMD> globalNetConnect VDD -type pgpin -pin VDD -inst * -verbose
+[03/04 21:18:44     35s] 32283 new pwr-pin connections were made to global net 'VDD'.
+[03/04 21:18:44     35s] <CMD> globalNetConnect VSS -type pgpin -pin VSS -inst * -verbose
+[03/04 21:18:44     35s] 32283 new gnd-pin connections were made to global net 'VSS'.
+[03/04 21:18:44     35s] <CMD> addRing -spacing {top 2 bottom 2 left 2 right 2} -width {top 3 bottom 3 left 3 right 3} -layer {top M1 bottom M1 left M2 right M2} -center 1 -type core_rings -nets {VSS  VDD}
+[03/04 21:18:44     35s] #% Begin addRing (date=03/04 21:18:44, mem=895.8M)
+[03/04 21:18:44     35s] 
+[03/04 21:18:44     35s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Ring generation is complete.
+[03/04 21:18:44     35s] vias are now being generated.
+[03/04 21:18:44     35s] addRing created 8 wires.
+[03/04 21:18:44     35s] ViaGen created 8 vias, deleted 0 via to avoid violation.
+[03/04 21:18:44     35s] +--------+----------------+----------------+
+[03/04 21:18:44     35s] |  Layer |     Created    |     Deleted    |
+[03/04 21:18:44     35s] +--------+----------------+----------------+
+[03/04 21:18:44     35s] |   M1   |        4       |       NA       |
+[03/04 21:18:44     35s] |  VIA1  |        8       |        0       |
+[03/04 21:18:44     35s] |   M2   |        4       |       NA       |
+[03/04 21:18:44     35s] +--------+----------------+----------------+
+[03/04 21:18:44     35s] #% End addRing (date=03/04 21:18:44, total cpu=0:00:00.0, real=0:00:00.0, peak res=897.9M, current mem=897.9M)
+[03/04 21:18:44     35s] <CMD> setAddStripeMode -break_at block_ring
+[03/04 21:18:44     35s] Stripe will break at block ring.
+[03/04 21:18:44     35s] <CMD> addStripe -number_of_sets 20 -spacing 6 -layer M4 -width 2 -nets { VSS VDD }
+[03/04 21:18:44     35s] #% Begin addStripe (date=03/04 21:18:44, mem=897.9M)
+[03/04 21:18:44     35s] 
+[03/04 21:18:44     35s] Initialize fgc environment(mem: 1188.4M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Starting stripe generation ...
+[03/04 21:18:44     35s] Non-Default Mode Option Settings :
+[03/04 21:18:44     35s]   NONE
+[03/04 21:18:44     35s] Completing 10% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Completing 20% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Completing 30% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Completing 40% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Completing 50% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Completing 60% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Completing 70% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Completing 80% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Completing 90% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1188.4M)
+[03/04 21:18:44     35s] Stripe generation is complete.
+[03/04 21:18:44     35s] vias are now being generated.
+[03/04 21:18:44     35s] addStripe created 40 wires.
+[03/04 21:18:44     35s] ViaGen created 240 vias, deleted 0 via to avoid violation.
+[03/04 21:18:44     35s] +--------+----------------+----------------+
+[03/04 21:18:44     35s] |  Layer |     Created    |     Deleted    |
+[03/04 21:18:44     35s] +--------+----------------+----------------+
+[03/04 21:18:44     35s] |  VIA1  |       80       |        0       |
+[03/04 21:18:44     35s] |  VIA2  |       80       |        0       |
+[03/04 21:18:44     35s] |  VIA3  |       80       |        0       |
+[03/04 21:18:44     35s] |   M4   |       40       |       NA       |
+[03/04 21:18:44     35s] +--------+----------------+----------------+
+[03/04 21:18:44     35s] #% End addStripe (date=03/04 21:18:44, total cpu=0:00:00.1, real=0:00:00.0, peak res=898.8M, current mem=898.8M)
+[03/04 21:18:44     35s] <CMD> sroute
+[03/04 21:18:44     35s] #% Begin sroute (date=03/04 21:18:44, mem=898.8M)
+[03/04 21:18:44     35s] *** Begin SPECIAL ROUTE on Sat Mar  4 21:18:44 2023 ***
+[03/04 21:18:44     35s] SPECIAL ROUTE ran on directory: /home/linux/ieng6/ee260bwi23/anijhawan/project/project/Part_1/pnr
+[03/04 21:18:44     35s] SPECIAL ROUTE ran on machine: ieng6-ece-06.ucsd.edu (Linux 3.10.0-1160.80.1.el7.x86_64 Xeon 2.00Ghz)
+[03/04 21:18:44     35s] 
+[03/04 21:18:44     35s] Begin option processing ...
+[03/04 21:18:44     35s] srouteConnectPowerBump set to false
+[03/04 21:18:44     35s] routeSpecial set to true
+[03/04 21:18:44     35s] srouteConnectConverterPin set to false
+[03/04 21:18:44     35s] srouteFollowCorePinEnd set to 3
+[03/04 21:18:44     35s] srouteJogControl set to "preferWithChanges differentLayer"
+[03/04 21:18:44     35s] sroutePadPinAllPorts set to true
+[03/04 21:18:44     35s] sroutePreserveExistingRoutes set to true
+[03/04 21:18:44     35s] srouteRoutePowerBarPortOnBothDir set to true
+[03/04 21:18:44     35s] End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2227.00 megs.
+[03/04 21:18:44     35s] 
+[03/04 21:18:44     35s] Reading DB technology information...
+[03/04 21:18:44     35s] Finished reading DB technology information.
+[03/04 21:18:44     35s] Reading floorplan and netlist information...
+[03/04 21:18:44     35s] Finished reading floorplan and netlist information.
+[03/04 21:18:44     35s] Read in 17 layers, 8 routing layers, 1 overlap layer
+[03/04 21:18:44     35s] Read in 846 macros, 130 used
+[03/04 21:18:44     35s] Read in 130 components
+[03/04 21:18:44     35s]   130 core components: 130 unplaced, 0 placed, 0 fixed
+[03/04 21:18:44     35s] Read in 258 logical pins
+[03/04 21:18:44     35s] Read in 258 nets
+[03/04 21:18:44     35s] Read in 2 special nets, 2 routed
+[03/04 21:18:44     35s] Read in 260 terminals
+[03/04 21:18:44     35s] Begin power routing ...
+[03/04 21:18:44     35s] **WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VDD net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+[03/04 21:18:44     35s] **WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDD net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+[03/04 21:18:44     35s] Type 'man IMPSR-1256' for more detail.
+[03/04 21:18:44     35s] Cannot find any AREAIO class pad pin of net VDD. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[03/04 21:18:44     35s] **WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VSS net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+[03/04 21:18:44     35s] **WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VSS net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+[03/04 21:18:44     35s] Type 'man IMPSR-1256' for more detail.
+[03/04 21:18:44     35s] Cannot find any AREAIO class pad pin of net VSS. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[03/04 21:18:45     36s] CPU time for FollowPin 0 seconds
+[03/04 21:18:45     36s] CPU time for FollowPin 0 seconds
+[03/04 21:18:46     37s]   Number of IO ports routed: 0
+[03/04 21:18:46     37s]   Number of Block ports routed: 0
+[03/04 21:18:46     37s]   Number of Stripe ports routed: 0
+[03/04 21:18:46     37s]   Number of Core ports routed: 612
+[03/04 21:18:46     37s]   Number of Pad ports routed: 0
+[03/04 21:18:46     37s]   Number of Power Bump ports routed: 0
+[03/04 21:18:46     37s]   Number of Followpin connections: 306
+[03/04 21:18:46     37s] End power routing: cpu: 0:00:01, real: 0:00:02, peak: 2247.00 megs.
+[03/04 21:18:46     37s] 
+[03/04 21:18:46     37s] 
+[03/04 21:18:46     37s] 
+[03/04 21:18:46     37s]  Begin updating DB with routing results ...
+[03/04 21:18:46     37s]  Updating DB with 0 via definition ...Extracting standard cell pins and blockage ...... 
+[03/04 21:18:46     37s] Pin and blockage extraction finished
+[03/04 21:18:46     37s] 
+[03/04 21:18:46     37s] sroute created 918 wires.
+[03/04 21:18:46     37s] ViaGen created 18972 vias, deleted 0 via to avoid violation.
+[03/04 21:18:46     37s] +--------+----------------+----------------+
+[03/04 21:18:46     37s] |  Layer |     Created    |     Deleted    |
+[03/04 21:18:46     37s] +--------+----------------+----------------+
+[03/04 21:18:46     37s] |   M1   |       918      |       NA       |
+[03/04 21:18:46     37s] |  VIA1  |      6732      |        0       |
+[03/04 21:18:46     37s] |  VIA2  |      6120      |        0       |
+[03/04 21:18:46     37s] |  VIA3  |      6120      |        0       |
+[03/04 21:18:46     37s] +--------+----------------+----------------+
+[03/04 21:18:46     37s] #% End sroute (date=03/04 21:18:46, total cpu=0:00:01.6, real=0:00:02.0, peak res=914.4M, current mem=914.4M)
+[03/04 21:20:08     53s] <CMD> getPinAssignMode -pinEditInBatch -quiet
+[03/04 21:20:08     53s] <CMD> setPinAssignMode -pinEditInBatch true
+[03/04 21:20:08     53s] <CMD> editPin -pinWidth 0.1 -pinDepth 0.5 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Left -layer 1 -spreadType center -spacing 0.8 -pin {clk {inst[0]} {inst[1]} {inst[2]} {inst[3]} {inst[4]} {inst[5]} {inst[6]} {inst[7]} {inst[8]} {inst[9]} {inst[10]} {inst[11]} {inst[12]} {inst[13]} {inst[14]} {inst[15]} {inst[16]} {mem_in[0]} {mem_in[1]} {mem_in[2]} {mem_in[3]} {mem_in[4]} {mem_in[5]} {mem_in[6]} {mem_in[7]} {mem_in[8]} {mem_in[9]} {mem_in[10]} {mem_in[11]} {mem_in[12]} {mem_in[13]} {mem_in[14]} {mem_in[15]} {mem_in[16]} {mem_in[17]} {mem_in[18]} {mem_in[19]} {mem_in[20]} {mem_in[21]} {mem_in[22]} {mem_in[23]} {mem_in[24]} {mem_in[25]} {mem_in[26]} {mem_in[27]} {mem_in[28]} {mem_in[29]} {mem_in[30]} {mem_in[31]} {mem_in[32]} {mem_in[33]} {mem_in[34]} {mem_in[35]} {mem_in[36]} {mem_in[37]} {mem_in[38]} {mem_in[39]} {mem_in[40]} {mem_in[41]} {mem_in[42]} {mem_in[43]} {mem_in[44]} {mem_in[45]} {mem_in[46]} {mem_in[47]} {mem_in[48]} {mem_in[49]} {mem_in[50]} {mem_in[51]} {mem_in[52]} {mem_in[53]} {mem_in[54]} {mem_in[55]} {mem_in[56]} {mem_in[57]} {mem_in[58]} {mem_in[59]} {mem_in[60]} {mem_in[61]} {mem_in[62]} {mem_in[63]} reset}
+[03/04 21:20:09     54s] Successfully spread [83] pins.
+[03/04 21:20:09     54s] editPin : finished (cpu = 0:00:01.0 real = 0:00:01.0, mem = 1241.8M).
+[03/04 21:20:09     54s] <CMD> setPinAssignMode -pinEditInBatch false
+[03/04 21:20:40     60s] <CMD> getPinAssignMode -pinEditInBatch -quiet
+[03/04 21:20:40     60s] <CMD> setPinAssignMode -pinEditInBatch true
+[03/04 21:20:40     60s] <CMD> editPin -pinWidth 0.1 -pinDepth 0.5 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 1 -spreadType center -spacing 0.8 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+[03/04 21:20:40     60s] Successfully spread [175] pins.
+[03/04 21:20:40     60s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1243.9M).
+[03/04 21:20:40     60s] <CMD> setPinAssignMode -pinEditInBatch false
+[03/04 21:20:53     63s] <CMD> checkPinAssignment
+[03/04 21:20:53     63s] #% Begin checkPinAssignment (date=03/04 21:20:53, mem=951.6M)
+[03/04 21:20:53     63s] Checking pins of top cell fullchip ... completed
+[03/04 21:20:53     63s] 
+[03/04 21:20:53     63s] ===========================================================================================================================
+[03/04 21:20:53     63s]                                                 checkPinAssignment Summary
+[03/04 21:20:53     63s] ===========================================================================================================================
+[03/04 21:20:53     63s] Partition   | pads  | pins   | legal  | illegal | internal | internal illegal | FT     | FT illegal | constant | unplaced |
+[03/04 21:20:53     63s] ===========================================================================================================================
+[03/04 21:20:53     63s] fullchip    |     0 |    258 |      0 |     258 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:20:53     63s] ===========================================================================================================================
+[03/04 21:20:53     63s] TOTAL       |     0 |    258 |      0 |     258 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:20:53     63s] ===========================================================================================================================
+[03/04 21:20:53     63s] #% End checkPinAssignment (date=03/04 21:20:53, total cpu=0:00:00.0, real=0:00:00.0, peak res=951.8M, current mem=951.8M)
+[03/04 21:21:05     65s] <CMD> zoomBox 109.72700 -5.88200 395.32350 260.78000
+[03/04 21:21:06     65s] <CMD> zoomBox 173.73000 -2.58950 322.81350 136.61000
+[03/04 21:21:06     65s] <CMD> zoomBox 43.99250 -58.94000 439.28400 310.14450
+[03/04 21:21:07     66s] <CMD> zoomBox 147.28350 -26.64250 296.36800 112.55800
+[03/04 21:21:08     66s] <CMD> zoomBox 179.56800 -13.85800 257.39100 58.80550
+[03/04 21:21:08     66s] <CMD> zoomBox 189.39100 -9.84100 245.61850 42.65850
+[03/04 21:21:08     66s] <CMD> zoomBox 206.80450 -2.61850 228.01100 17.18200
+[03/04 21:21:09     66s] <CMD> zoomBox 213.42000 0.10500 221.41900 7.57350
+[03/04 21:21:09     66s] <CMD> zoomBox 214.44150 0.30100 220.22100 5.69750
+[03/04 21:21:09     66s] <CMD> zoomBox 215.17950 0.47500 219.35550 4.37400
+[03/04 21:21:10     66s] <CMD> zoomBox 211.85150 -0.45850 222.92500 9.88100
+[03/04 21:21:11     67s] <CMD> zoomBox 206.37950 -2.98000 227.59400 16.82800
+[03/04 21:21:12     67s] <CMD> zoomBox 212.36000 -0.89850 220.36150 6.57250
+[03/04 21:21:12     67s] <CMD> zoomBox 214.14850 -0.42650 218.32550 3.47350
+[03/04 21:21:13     67s] <CMD> zoomBox 215.17000 -0.16550 217.35050 1.87050
+[03/04 21:21:13     67s] <CMD> zoomBox 215.74300 -0.02000 216.88200 1.04350
+[03/04 21:21:15     68s] <CMD> zoomBox 214.58500 -0.37400 217.60650 2.44700
+[03/04 21:21:21     69s] <CMD> getPinAssignMode -pinEditInBatch -quiet
+[03/04 21:21:21     69s] <CMD> setPinAssignMode -pinEditInBatch true
+[03/04 21:21:21     69s] <CMD> editPin -pinWidth 0.1 -pinDepth 0.5 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Right -layer 1 -spreadType center -spacing 0.8 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+[03/04 21:21:21     69s] Successfully spread [175] pins.
+[03/04 21:21:21     69s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1243.9M).
+[03/04 21:21:21     69s] <CMD> setPinAssignMode -pinEditInBatch false
+[03/04 21:21:24     69s] <CMD> getPinAssignMode -pinEditInBatch -quiet
+[03/04 21:21:24     69s] <CMD> setPinAssignMode -pinEditInBatch true
+[03/04 21:21:24     69s] <CMD> editPin -pinWidth 0.1 -pinDepth 0.5 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Right -layer 1 -spreadType center -spacing 0.8 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+[03/04 21:21:24     69s] Successfully spread [175] pins.
+[03/04 21:21:24     69s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1243.9M).
+[03/04 21:21:24     69s] <CMD> setPinAssignMode -pinEditInBatch false
+[03/04 21:21:25     70s] <CMD> zoomBox 211.80950 -1.59750 219.82150 5.88350
+[03/04 21:21:26     70s] <CMD> zoomBox 199.90950 -6.83900 229.31600 20.61800
+[03/04 21:21:32     71s] <CMD> checkPinAssignment
+[03/04 21:21:32     71s] #% Begin checkPinAssignment (date=03/04 21:21:32, mem=952.4M)
+[03/04 21:21:33     71s] Checking pins of top cell fullchip ... completed
+[03/04 21:21:33     71s] 
+[03/04 21:21:33     71s] ===========================================================================================================================
+[03/04 21:21:33     71s]                                                 checkPinAssignment Summary
+[03/04 21:21:33     71s] ===========================================================================================================================
+[03/04 21:21:33     71s] Partition   | pads  | pins   | legal  | illegal | internal | internal illegal | FT     | FT illegal | constant | unplaced |
+[03/04 21:21:33     71s] ===========================================================================================================================
+[03/04 21:21:33     71s] fullchip    |     0 |    258 |      0 |     258 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:21:33     71s] ===========================================================================================================================
+[03/04 21:21:33     71s] TOTAL       |     0 |    258 |      0 |     258 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:21:33     71s] ===========================================================================================================================
+[03/04 21:21:33     71s] #% End checkPinAssignment (date=03/04 21:21:33, total cpu=0:00:00.0, real=0:00:01.0, peak res=952.5M, current mem=952.5M)
+[03/04 21:22:01     77s] <CMD> legalizePin
+[03/04 21:22:01     77s] #% Begin legalizePin (date=03/04 21:22:01, mem=952.6M)
+[03/04 21:22:01     77s] 
+[03/04 21:22:01     77s] Start pin legalization for the partition [fullchip]:
+[03/04 21:22:01     77s] Moving Pin [clk] to LEGAL location (   0.000  251.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[63]] to LEGAL location (   0.000  316.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[62]] to LEGAL location (   0.000  315.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[61]] to LEGAL location (   0.000  314.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[60]] to LEGAL location (   0.000  314.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[59]] to LEGAL location (   0.000  313.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[58]] to LEGAL location (   0.000  312.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[57]] to LEGAL location (   0.000  311.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[56]] to LEGAL location (   0.000  310.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[55]] to LEGAL location (   0.000  310.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[54]] to LEGAL location (   0.000  309.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[53]] to LEGAL location (   0.000  308.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[52]] to LEGAL location (   0.000  307.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[51]] to LEGAL location (   0.000  306.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[50]] to LEGAL location (   0.000  306.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[49]] to LEGAL location (   0.000  305.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[48]] to LEGAL location (   0.000  304.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[47]] to LEGAL location (   0.000  303.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[46]] to LEGAL location (   0.000  302.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[45]] to LEGAL location (   0.000  302.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[44]] to LEGAL location (   0.000  301.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[43]] to LEGAL location (   0.000  300.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[42]] to LEGAL location (   0.000  299.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[41]] to LEGAL location (   0.000  298.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[40]] to LEGAL location (   0.000  298.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[39]] to LEGAL location (   0.000  297.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[38]] to LEGAL location (   0.000  296.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[37]] to LEGAL location (   0.000  295.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[36]] to LEGAL location (   0.000  294.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[35]] to LEGAL location (   0.000  294.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[34]] to LEGAL location (   0.000  293.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[33]] to LEGAL location (   0.000  292.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[32]] to LEGAL location (   0.000  291.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[31]] to LEGAL location (   0.000  290.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[30]] to LEGAL location (   0.000  290.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[29]] to LEGAL location (   0.000  289.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[28]] to LEGAL location (   0.000  288.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[27]] to LEGAL location (   0.000  287.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[26]] to LEGAL location (   0.000  286.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[25]] to LEGAL location (   0.000  286.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[24]] to LEGAL location (   0.000  285.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[23]] to LEGAL location (   0.000  284.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[22]] to LEGAL location (   0.000  283.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[21]] to LEGAL location (   0.000  282.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[20]] to LEGAL location (   0.000  282.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[19]] to LEGAL location (   0.000  281.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[18]] to LEGAL location (   0.000  280.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[17]] to LEGAL location (   0.000  279.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[16]] to LEGAL location (   0.000  278.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[15]] to LEGAL location (   0.000  278.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[14]] to LEGAL location (   0.000  277.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[13]] to LEGAL location (   0.000  276.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[12]] to LEGAL location (   0.000  275.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[11]] to LEGAL location (   0.000  274.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[10]] to LEGAL location (   0.000  274.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[9]] to LEGAL location (   0.000  273.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[8]] to LEGAL location (   0.000  272.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[7]] to LEGAL location (   0.000  271.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[6]] to LEGAL location (   0.000  270.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[5]] to LEGAL location (   0.000  270.000 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[4]] to LEGAL location (   0.000  269.200 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[3]] to LEGAL location (   0.000  268.400 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[2]] to LEGAL location (   0.000  267.600 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[1]] to LEGAL location (   0.000  266.800 3 )
+[03/04 21:22:01     77s] Moving Pin [mem_in[0]] to LEGAL location (   0.000  266.000 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[16]] to LEGAL location (   0.000  265.200 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[15]] to LEGAL location (   0.000  264.400 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[14]] to LEGAL location (   0.000  263.600 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[13]] to LEGAL location (   0.000  262.800 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[12]] to LEGAL location (   0.000  262.000 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[11]] to LEGAL location (   0.000  261.200 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[10]] to LEGAL location (   0.000  260.400 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[9]] to LEGAL location (   0.000  259.600 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[8]] to LEGAL location (   0.000  258.800 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[7]] to LEGAL location (   0.000  258.000 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[6]] to LEGAL location (   0.000  257.200 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[5]] to LEGAL location (   0.000  256.400 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[4]] to LEGAL location (   0.000  255.600 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[3]] to LEGAL location (   0.000  254.800 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[2]] to LEGAL location (   0.000  254.000 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[1]] to LEGAL location (   0.000  253.200 3 )
+[03/04 21:22:01     77s] Moving Pin [inst[0]] to LEGAL location (   0.000  252.400 3 )
+[03/04 21:22:01     77s] Moving Pin [reset] to LEGAL location (   0.000  317.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[151]] to LEGAL location ( 572.400  335.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[150]] to LEGAL location ( 572.400  334.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[149]] to LEGAL location ( 572.400  334.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[148]] to LEGAL location ( 572.400  333.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[147]] to LEGAL location ( 572.400  332.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[146]] to LEGAL location ( 572.400  331.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[145]] to LEGAL location ( 572.400  330.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[144]] to LEGAL location ( 572.400  330.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[143]] to LEGAL location ( 572.400  329.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[142]] to LEGAL location ( 572.400  328.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[141]] to LEGAL location ( 572.400  327.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[140]] to LEGAL location ( 572.400  326.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[139]] to LEGAL location ( 572.400  326.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[138]] to LEGAL location ( 572.400  325.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[137]] to LEGAL location ( 572.400  324.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[136]] to LEGAL location ( 572.400  323.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[135]] to LEGAL location ( 572.400  322.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[134]] to LEGAL location ( 572.400  322.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[133]] to LEGAL location ( 572.400  321.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[132]] to LEGAL location ( 572.400  320.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[131]] to LEGAL location ( 572.400  319.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[130]] to LEGAL location ( 572.400  318.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[129]] to LEGAL location ( 572.400  318.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[128]] to LEGAL location ( 572.400  317.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[127]] to LEGAL location ( 572.400  316.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[126]] to LEGAL location ( 572.400  315.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[125]] to LEGAL location ( 572.400  314.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[124]] to LEGAL location ( 572.400  314.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[123]] to LEGAL location ( 572.400  313.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[122]] to LEGAL location ( 572.400  312.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[121]] to LEGAL location ( 572.400  311.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[120]] to LEGAL location ( 572.400  310.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[119]] to LEGAL location ( 572.400  310.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[118]] to LEGAL location ( 572.400  309.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[117]] to LEGAL location ( 572.400  308.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[116]] to LEGAL location ( 572.400  307.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[115]] to LEGAL location ( 572.400  306.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[114]] to LEGAL location ( 572.400  306.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[113]] to LEGAL location ( 572.400  305.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[112]] to LEGAL location ( 572.400  304.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[111]] to LEGAL location ( 572.400  303.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[110]] to LEGAL location ( 572.400  302.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[109]] to LEGAL location ( 572.400  302.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[108]] to LEGAL location ( 572.400  301.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[107]] to LEGAL location ( 572.400  300.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[106]] to LEGAL location ( 572.400  299.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[105]] to LEGAL location ( 572.400  298.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[104]] to LEGAL location ( 572.400  298.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[103]] to LEGAL location ( 572.400  297.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[102]] to LEGAL location ( 572.400  296.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[101]] to LEGAL location ( 572.400  295.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[100]] to LEGAL location ( 572.400  294.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[99]] to LEGAL location ( 572.400  294.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[98]] to LEGAL location ( 572.400  293.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[97]] to LEGAL location ( 572.400  292.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[96]] to LEGAL location ( 572.400  291.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[95]] to LEGAL location ( 572.400  290.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[94]] to LEGAL location ( 572.400  290.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[93]] to LEGAL location ( 572.400  289.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[92]] to LEGAL location ( 572.400  288.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[91]] to LEGAL location ( 572.400  287.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[90]] to LEGAL location ( 572.400  286.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[89]] to LEGAL location ( 572.400  286.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[88]] to LEGAL location ( 572.400  285.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[87]] to LEGAL location ( 572.400  284.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[86]] to LEGAL location ( 572.400  283.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[85]] to LEGAL location ( 572.400  282.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[84]] to LEGAL location ( 572.400  282.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[83]] to LEGAL location ( 572.400  281.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[82]] to LEGAL location ( 572.400  280.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[81]] to LEGAL location ( 572.400  279.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[80]] to LEGAL location ( 572.400  278.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[79]] to LEGAL location ( 572.400  278.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[78]] to LEGAL location ( 572.400  277.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[77]] to LEGAL location ( 572.400  276.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[76]] to LEGAL location ( 572.400  275.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[75]] to LEGAL location ( 572.400  274.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[74]] to LEGAL location ( 572.400  274.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[73]] to LEGAL location ( 572.400  273.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[72]] to LEGAL location ( 572.400  272.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[71]] to LEGAL location ( 572.400  271.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[70]] to LEGAL location ( 572.400  270.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[69]] to LEGAL location ( 572.400  270.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[68]] to LEGAL location ( 572.400  269.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[67]] to LEGAL location ( 572.400  268.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[66]] to LEGAL location ( 572.400  267.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[65]] to LEGAL location ( 572.400  266.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[64]] to LEGAL location ( 572.400  266.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[63]] to LEGAL location ( 572.400  265.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[62]] to LEGAL location ( 572.400  264.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[61]] to LEGAL location ( 572.400  263.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[60]] to LEGAL location ( 572.400  262.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[59]] to LEGAL location ( 572.400  262.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[58]] to LEGAL location ( 572.400  261.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[57]] to LEGAL location ( 572.400  260.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[56]] to LEGAL location ( 572.400  259.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[55]] to LEGAL location ( 572.400  258.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[54]] to LEGAL location ( 572.400  258.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[53]] to LEGAL location ( 572.400  257.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[52]] to LEGAL location ( 572.400  256.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[51]] to LEGAL location ( 572.400  255.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[50]] to LEGAL location ( 572.400  254.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[49]] to LEGAL location ( 572.400  254.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[48]] to LEGAL location ( 572.400  253.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[47]] to LEGAL location ( 572.400  252.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[46]] to LEGAL location ( 572.400  251.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[45]] to LEGAL location ( 572.400  250.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[44]] to LEGAL location ( 572.400  250.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[43]] to LEGAL location ( 572.400  249.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[42]] to LEGAL location ( 572.400  248.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[41]] to LEGAL location ( 572.400  247.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[40]] to LEGAL location ( 572.400  246.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[39]] to LEGAL location ( 572.400  246.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[38]] to LEGAL location ( 572.400  245.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[37]] to LEGAL location ( 572.400  244.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[36]] to LEGAL location ( 572.400  243.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[35]] to LEGAL location ( 572.400  242.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[34]] to LEGAL location ( 572.400  242.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[33]] to LEGAL location ( 572.400  241.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[32]] to LEGAL location ( 572.400  240.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[31]] to LEGAL location ( 572.400  239.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[30]] to LEGAL location ( 572.400  238.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[29]] to LEGAL location ( 572.400  238.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[28]] to LEGAL location ( 572.400  237.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[27]] to LEGAL location ( 572.400  236.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[26]] to LEGAL location ( 572.400  235.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[25]] to LEGAL location ( 572.400  234.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[24]] to LEGAL location ( 572.400  234.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[23]] to LEGAL location ( 572.400  233.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[22]] to LEGAL location ( 572.400  232.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[21]] to LEGAL location ( 572.400  231.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[20]] to LEGAL location ( 572.400  230.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[19]] to LEGAL location ( 572.400  230.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[18]] to LEGAL location ( 572.400  229.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[17]] to LEGAL location ( 572.400  228.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[16]] to LEGAL location ( 572.400  227.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[15]] to LEGAL location ( 572.400  226.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[14]] to LEGAL location ( 572.400  226.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[13]] to LEGAL location ( 572.400  225.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[12]] to LEGAL location ( 572.400  224.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[11]] to LEGAL location ( 572.400  223.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[10]] to LEGAL location ( 572.400  222.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[9]] to LEGAL location ( 572.400  222.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[8]] to LEGAL location ( 572.400  221.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[7]] to LEGAL location ( 572.400  220.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[6]] to LEGAL location ( 572.400  219.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[5]] to LEGAL location ( 572.400  218.800 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[4]] to LEGAL location ( 572.400  218.000 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[3]] to LEGAL location ( 572.400  217.200 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[2]] to LEGAL location ( 572.400  216.400 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[1]] to LEGAL location ( 572.400  215.600 3 )
+[03/04 21:22:01     77s] Moving Pin [pmem_out[0]] to LEGAL location ( 572.400  214.800 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[22]] to LEGAL location ( 572.400  354.000 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[21]] to LEGAL location ( 572.400  353.200 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[20]] to LEGAL location ( 572.400  352.400 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[19]] to LEGAL location ( 572.400  351.600 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[18]] to LEGAL location ( 572.400  350.800 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[17]] to LEGAL location ( 572.400  350.000 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[16]] to LEGAL location ( 572.400  349.200 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[15]] to LEGAL location ( 572.400  348.400 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[14]] to LEGAL location ( 572.400  347.600 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[13]] to LEGAL location ( 572.400  346.800 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[12]] to LEGAL location ( 572.400  346.000 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[11]] to LEGAL location ( 572.400  345.200 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[10]] to LEGAL location ( 572.400  344.400 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[9]] to LEGAL location ( 572.400  343.600 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[8]] to LEGAL location ( 572.400  342.800 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[7]] to LEGAL location ( 572.400  342.000 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[6]] to LEGAL location ( 572.400  341.200 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[5]] to LEGAL location ( 572.400  340.400 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[4]] to LEGAL location ( 572.400  339.600 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[3]] to LEGAL location ( 572.400  338.800 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[2]] to LEGAL location ( 572.400  338.000 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[1]] to LEGAL location ( 572.400  337.200 3 )
+[03/04 21:22:01     77s] Moving Pin [sum_out[0]] to LEGAL location ( 572.400  336.400 3 )
+[03/04 21:22:01     77s] Summary report for top level: [fullchip] 
+[03/04 21:22:01     77s] 	Total Pads                         : 0
+[03/04 21:22:01     77s] 	Total Pins                         : 258
+[03/04 21:22:01     77s] 	Legally Assigned Pins              : 258
+[03/04 21:22:01     77s] 	Illegally Assigned Pins            : 0
+[03/04 21:22:01     77s] 	Unplaced Pins                      : 0
+[03/04 21:22:01     77s] 	Constant/Spl Net Pins              : 0
+[03/04 21:22:01     77s] 	Internal Pins                      : 0
+[03/04 21:22:01     77s] 	Legally Assigned Feedthrough Pins  : 0
+[03/04 21:22:01     77s] 	Illegally Assigned Feedthrough Pins: 0
+[03/04 21:22:01     77s] End of Summary report
+[03/04 21:22:01     77s] 258 pin(s) of the Partition fullchip were legalized.
+[03/04 21:22:01     77s] End pin legalization for the partition [fullchip].
+[03/04 21:22:01     77s] 
+[03/04 21:22:01     77s] #% End legalizePin (date=03/04 21:22:01, total cpu=0:00:00.1, real=0:00:00.0, peak res=953.0M, current mem=953.0M)
+[03/04 21:22:12     79s] <CMD> checkPinAssignment
+[03/04 21:22:12     79s] #% Begin checkPinAssignment (date=03/04 21:22:12, mem=952.5M)
+[03/04 21:22:12     79s] Checking pins of top cell fullchip ... completed
+[03/04 21:22:12     79s] 
+[03/04 21:22:12     79s] ===========================================================================================================================
+[03/04 21:22:12     79s]                                                 checkPinAssignment Summary
+[03/04 21:22:12     79s] ===========================================================================================================================
+[03/04 21:22:12     79s] Partition   | pads  | pins   | legal  | illegal | internal | internal illegal | FT     | FT illegal | constant | unplaced |
+[03/04 21:22:12     79s] ===========================================================================================================================
+[03/04 21:22:12     79s] fullchip    |     0 |    258 |    258 |       0 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:22:12     79s] ===========================================================================================================================
+[03/04 21:22:12     79s] TOTAL       |     0 |    258 |    258 |       0 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:22:12     79s] ===========================================================================================================================
+[03/04 21:22:12     79s] #% End checkPinAssignment (date=03/04 21:22:12, total cpu=0:00:00.0, real=0:00:00.0, peak res=952.6M, current mem=952.6M)
+[03/04 21:22:15     80s] <CMD> zoomBox 170.03650 -23.56450 248.00850 49.23800
+[03/04 21:22:15     80s] <CMD> zoomBox 85.61200 -58.42500 292.35350 134.61000
+[03/04 21:22:16     80s] <CMD> zoomBox -39.54950 -110.72150 356.50300 259.07350
+[03/04 21:22:16     80s] <CMD> zoomBox -471.98250 -291.40400 578.14050 689.09750
+[03/04 21:22:17     80s] <CMD> zoomBox -1877.90900 -1008.65300 906.45850 1591.11550
+[03/04 21:22:18     80s] <CMD> zoomBox -310.80300 -235.74900 739.32050 744.75300
+[03/04 21:22:19     81s] <CMD> zoomBox 236.06200 52.44100 632.11600 422.23750
+[03/04 21:22:19     81s] <CMD> zoomBox 446.66100 170.31650 596.03350 309.78600
+[03/04 21:22:19     81s] <CMD> zoomBox 507.93500 205.29200 585.90900 278.09650
+[03/04 21:22:20     81s] <CMD> zoomBox 555.25850 226.08000 576.50700 245.92000
+[03/04 21:22:21     81s] <CMD> zoomBox 563.73100 229.80200 574.82350 240.15900
+[03/04 21:22:22     81s] <CMD> zoomBox 569.31450 232.81050 572.33800 235.63350
+[03/04 21:22:22     81s] <CMD> zoomBox 570.41600 233.32950 571.99450 234.80350
+[03/04 21:22:23     82s] <CMD> zoomBox 568.26400 232.31900 572.45150 236.22900
+[03/04 21:22:23     82s] <CMD> zoomBox 567.10550 231.75000 572.90200 237.16200
+[03/04 21:22:24     82s] <CMD> selectPhyPin 571.8800 233.9500 572.4000 234.0500 3 {pmem_out[24]}
+[03/04 21:22:30     83s] <CMD> setLayerPreference M3 -isVisible 0
+[03/04 21:22:31     83s] <CMD> setLayerPreference M3 -isVisible 1
+[03/04 21:22:59     89s] <CMD> getPinAssignMode -pinEditInBatch -quiet
+[03/04 21:22:59     89s] <CMD> setPinAssignMode -pinEditInBatch true
+[03/04 21:22:59     89s] <CMD> editPin -pinWidth 0.1 -pinDepth 0.52 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 1 -spreadType center -spacing 0.8 -pin {{pmem_out[0]} {pmem_out[1]} {pmem_out[2]} {pmem_out[3]} {pmem_out[4]} {pmem_out[5]} {pmem_out[6]} {pmem_out[7]} {pmem_out[8]} {pmem_out[9]} {pmem_out[10]} {pmem_out[11]} {pmem_out[12]} {pmem_out[13]} {pmem_out[14]} {pmem_out[15]} {pmem_out[16]} {pmem_out[17]} {pmem_out[18]} {pmem_out[19]} {pmem_out[20]} {pmem_out[21]} {pmem_out[22]} {pmem_out[23]} {pmem_out[24]} {pmem_out[25]} {pmem_out[26]} {pmem_out[27]} {pmem_out[28]} {pmem_out[29]} {pmem_out[30]} {pmem_out[31]} {pmem_out[32]} {pmem_out[33]} {pmem_out[34]} {pmem_out[35]} {pmem_out[36]} {pmem_out[37]} {pmem_out[38]} {pmem_out[39]} {pmem_out[40]} {pmem_out[41]} {pmem_out[42]} {pmem_out[43]} {pmem_out[44]} {pmem_out[45]} {pmem_out[46]} {pmem_out[47]} {pmem_out[48]} {pmem_out[49]} {pmem_out[50]} {pmem_out[51]} {pmem_out[52]} {pmem_out[53]} {pmem_out[54]} {pmem_out[55]} {pmem_out[56]} {pmem_out[57]} {pmem_out[58]} {pmem_out[59]} {pmem_out[60]} {pmem_out[61]} {pmem_out[62]} {pmem_out[63]} {pmem_out[64]} {pmem_out[65]} {pmem_out[66]} {pmem_out[67]} {pmem_out[68]} {pmem_out[69]} {pmem_out[70]} {pmem_out[71]} {pmem_out[72]} {pmem_out[73]} {pmem_out[74]} {pmem_out[75]} {pmem_out[76]} {pmem_out[77]} {pmem_out[78]} {pmem_out[79]} {pmem_out[80]} {pmem_out[81]} {pmem_out[82]} {pmem_out[83]} {pmem_out[84]} {pmem_out[85]} {pmem_out[86]} {pmem_out[87]} {pmem_out[88]} {pmem_out[89]} {pmem_out[90]} {pmem_out[91]} {pmem_out[92]} {pmem_out[93]} {pmem_out[94]} {pmem_out[95]} {pmem_out[96]} {pmem_out[97]} {pmem_out[98]} {pmem_out[99]} {pmem_out[100]} {pmem_out[101]} {pmem_out[102]} {pmem_out[103]} {pmem_out[104]} {pmem_out[105]} {pmem_out[106]} {pmem_out[107]} {pmem_out[108]} {pmem_out[109]} {pmem_out[110]} {pmem_out[111]} {pmem_out[112]} {pmem_out[113]} {pmem_out[114]} {pmem_out[115]} {pmem_out[116]} {pmem_out[117]} {pmem_out[118]} {pmem_out[119]} {pmem_out[120]} {pmem_out[121]} {pmem_out[122]} {pmem_out[123]} {pmem_out[124]} {pmem_out[125]} {pmem_out[126]} {pmem_out[127]} {pmem_out[128]} {pmem_out[129]} {pmem_out[130]} {pmem_out[131]} {pmem_out[132]} {pmem_out[133]} {pmem_out[134]} {pmem_out[135]} {pmem_out[136]} {pmem_out[137]} {pmem_out[138]} {pmem_out[139]} {pmem_out[140]} {pmem_out[141]} {pmem_out[142]} {pmem_out[143]} {pmem_out[144]} {pmem_out[145]} {pmem_out[146]} {pmem_out[147]} {pmem_out[148]} {pmem_out[149]} {pmem_out[150]} {pmem_out[151]} {sum_out[0]} {sum_out[1]} {sum_out[2]} {sum_out[3]} {sum_out[4]} {sum_out[5]} {sum_out[6]} {sum_out[7]} {sum_out[8]} {sum_out[9]} {sum_out[10]} {sum_out[11]} {sum_out[12]} {sum_out[13]} {sum_out[14]} {sum_out[15]} {sum_out[16]} {sum_out[17]} {sum_out[18]} {sum_out[19]} {sum_out[20]} {sum_out[21]} {sum_out[22]}}
+[03/04 21:23:00     89s] Successfully spread [175] pins.
+[03/04 21:23:00     89s] editPin : finished (cpu = 0:00:00.0 real = 0:00:01.0, mem = 1243.9M).
+[03/04 21:23:00     89s] <CMD> setPinAssignMode -pinEditInBatch false
+[03/04 21:23:13     92s] <CMD> checkPinAssignment
+[03/04 21:23:13     92s] #% Begin checkPinAssignment (date=03/04 21:23:13, mem=952.9M)
+[03/04 21:23:13     92s] Checking pins of top cell fullchip ... completed
+[03/04 21:23:13     92s] 
+[03/04 21:23:13     92s] ===========================================================================================================================
+[03/04 21:23:13     92s]                                                 checkPinAssignment Summary
+[03/04 21:23:13     92s] ===========================================================================================================================
+[03/04 21:23:13     92s] Partition   | pads  | pins   | legal  | illegal | internal | internal illegal | FT     | FT illegal | constant | unplaced |
+[03/04 21:23:13     92s] ===========================================================================================================================
+[03/04 21:23:13     92s] fullchip    |     0 |    258 |     83 |     175 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:23:13     92s] ===========================================================================================================================
+[03/04 21:23:13     92s] TOTAL       |     0 |    258 |     83 |     175 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:23:13     92s] ===========================================================================================================================
+[03/04 21:23:13     92s] #% End checkPinAssignment (date=03/04 21:23:13, total cpu=0:00:00.0, real=0:00:00.0, peak res=953.0M, current mem=953.0M)
+[03/04 21:23:21     94s] <CMD> legalizePin
+[03/04 21:23:21     94s] #% Begin legalizePin (date=03/04 21:23:21, mem=953.0M)
+[03/04 21:23:21     94s] 
+[03/04 21:23:21     94s] Start pin legalization for the partition [fullchip]:
+[03/04 21:23:22     94s] Moving Pin [pmem_out[151]] to LEGAL location ( 337.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[150]] to LEGAL location ( 336.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[149]] to LEGAL location ( 335.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[148]] to LEGAL location ( 334.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[147]] to LEGAL location ( 334.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[146]] to LEGAL location ( 333.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[145]] to LEGAL location ( 332.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[144]] to LEGAL location ( 331.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[143]] to LEGAL location ( 330.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[142]] to LEGAL location ( 330.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[141]] to LEGAL location ( 329.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[140]] to LEGAL location ( 328.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[139]] to LEGAL location ( 327.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[138]] to LEGAL location ( 326.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[137]] to LEGAL location ( 326.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[136]] to LEGAL location ( 325.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[135]] to LEGAL location ( 324.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[134]] to LEGAL location ( 323.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[133]] to LEGAL location ( 322.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[132]] to LEGAL location ( 322.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[131]] to LEGAL location ( 321.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[130]] to LEGAL location ( 320.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[129]] to LEGAL location ( 319.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[128]] to LEGAL location ( 318.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[127]] to LEGAL location ( 318.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[126]] to LEGAL location ( 317.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[125]] to LEGAL location ( 316.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[124]] to LEGAL location ( 315.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[123]] to LEGAL location ( 314.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[122]] to LEGAL location ( 314.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[121]] to LEGAL location ( 313.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[120]] to LEGAL location ( 312.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[119]] to LEGAL location ( 311.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[118]] to LEGAL location ( 310.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[117]] to LEGAL location ( 310.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[116]] to LEGAL location ( 309.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[115]] to LEGAL location ( 308.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[114]] to LEGAL location ( 307.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[113]] to LEGAL location ( 306.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[112]] to LEGAL location ( 306.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[111]] to LEGAL location ( 305.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[110]] to LEGAL location ( 304.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[109]] to LEGAL location ( 303.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[108]] to LEGAL location ( 302.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[107]] to LEGAL location ( 302.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[106]] to LEGAL location ( 301.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[105]] to LEGAL location ( 300.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[104]] to LEGAL location ( 299.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[103]] to LEGAL location ( 298.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[102]] to LEGAL location ( 298.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[101]] to LEGAL location ( 297.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[100]] to LEGAL location ( 296.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[99]] to LEGAL location ( 295.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[98]] to LEGAL location ( 294.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[97]] to LEGAL location ( 294.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[96]] to LEGAL location ( 293.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[95]] to LEGAL location ( 292.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[94]] to LEGAL location ( 291.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[93]] to LEGAL location ( 290.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[92]] to LEGAL location ( 290.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[91]] to LEGAL location ( 289.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[90]] to LEGAL location ( 288.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[89]] to LEGAL location ( 287.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[88]] to LEGAL location ( 286.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[87]] to LEGAL location ( 286.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[86]] to LEGAL location ( 285.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[85]] to LEGAL location ( 284.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[84]] to LEGAL location ( 283.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[83]] to LEGAL location ( 282.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[82]] to LEGAL location ( 282.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[81]] to LEGAL location ( 281.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[80]] to LEGAL location ( 280.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[79]] to LEGAL location ( 279.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[78]] to LEGAL location ( 278.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[77]] to LEGAL location ( 278.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[76]] to LEGAL location ( 277.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[75]] to LEGAL location ( 276.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[74]] to LEGAL location ( 275.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[73]] to LEGAL location ( 274.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[72]] to LEGAL location ( 274.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[71]] to LEGAL location ( 273.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[70]] to LEGAL location ( 272.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[69]] to LEGAL location ( 271.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[68]] to LEGAL location ( 270.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[67]] to LEGAL location ( 270.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[66]] to LEGAL location ( 269.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[65]] to LEGAL location ( 268.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[64]] to LEGAL location ( 267.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[63]] to LEGAL location ( 266.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[62]] to LEGAL location ( 266.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[61]] to LEGAL location ( 265.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[60]] to LEGAL location ( 264.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[59]] to LEGAL location ( 263.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[58]] to LEGAL location ( 262.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[57]] to LEGAL location ( 262.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[56]] to LEGAL location ( 261.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[55]] to LEGAL location ( 260.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[54]] to LEGAL location ( 259.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[53]] to LEGAL location ( 258.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[52]] to LEGAL location ( 258.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[51]] to LEGAL location ( 257.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[50]] to LEGAL location ( 256.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[49]] to LEGAL location ( 255.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[48]] to LEGAL location ( 254.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[47]] to LEGAL location ( 254.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[46]] to LEGAL location ( 253.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[45]] to LEGAL location ( 252.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[44]] to LEGAL location ( 251.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[43]] to LEGAL location ( 250.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[42]] to LEGAL location ( 250.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[41]] to LEGAL location ( 249.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[40]] to LEGAL location ( 248.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[39]] to LEGAL location ( 247.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[38]] to LEGAL location ( 246.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[37]] to LEGAL location ( 246.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[36]] to LEGAL location ( 245.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[35]] to LEGAL location ( 244.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[34]] to LEGAL location ( 243.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[33]] to LEGAL location ( 242.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[32]] to LEGAL location ( 242.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[31]] to LEGAL location ( 241.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[30]] to LEGAL location ( 240.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[29]] to LEGAL location ( 239.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[28]] to LEGAL location ( 238.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[27]] to LEGAL location ( 238.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[26]] to LEGAL location ( 237.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[25]] to LEGAL location ( 236.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[24]] to LEGAL location ( 235.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[23]] to LEGAL location ( 234.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[22]] to LEGAL location ( 234.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[21]] to LEGAL location ( 233.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[20]] to LEGAL location ( 232.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[19]] to LEGAL location ( 231.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[18]] to LEGAL location ( 230.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[17]] to LEGAL location ( 230.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[16]] to LEGAL location ( 229.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[15]] to LEGAL location ( 228.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[14]] to LEGAL location ( 227.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[13]] to LEGAL location ( 226.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[12]] to LEGAL location ( 226.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[11]] to LEGAL location ( 225.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[10]] to LEGAL location ( 224.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[9]] to LEGAL location ( 223.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[8]] to LEGAL location ( 222.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[7]] to LEGAL location ( 222.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[6]] to LEGAL location ( 221.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[5]] to LEGAL location ( 220.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[4]] to LEGAL location ( 219.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[3]] to LEGAL location ( 218.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[2]] to LEGAL location ( 218.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[1]] to LEGAL location ( 217.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [pmem_out[0]] to LEGAL location ( 216.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[22]] to LEGAL location ( 355.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[21]] to LEGAL location ( 354.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[20]] to LEGAL location ( 354.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[19]] to LEGAL location ( 353.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[18]] to LEGAL location ( 352.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[17]] to LEGAL location ( 351.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[16]] to LEGAL location ( 350.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[15]] to LEGAL location ( 350.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[14]] to LEGAL location ( 349.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[13]] to LEGAL location ( 348.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[12]] to LEGAL location ( 347.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[11]] to LEGAL location ( 346.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[10]] to LEGAL location ( 346.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[9]] to LEGAL location ( 345.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[8]] to LEGAL location ( 344.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[7]] to LEGAL location ( 343.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[6]] to LEGAL location ( 342.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[5]] to LEGAL location ( 342.100    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[4]] to LEGAL location ( 341.300    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[3]] to LEGAL location ( 340.500    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[2]] to LEGAL location ( 339.700    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[1]] to LEGAL location ( 338.900    0.000 2 )
+[03/04 21:23:22     94s] Moving Pin [sum_out[0]] to LEGAL location ( 338.100    0.000 2 )
+[03/04 21:23:22     94s] Summary report for top level: [fullchip] 
+[03/04 21:23:22     94s] 	Total Pads                         : 0
+[03/04 21:23:22     94s] 	Total Pins                         : 258
+[03/04 21:23:22     94s] 	Legally Assigned Pins              : 258
+[03/04 21:23:22     94s] 	Illegally Assigned Pins            : 0
+[03/04 21:23:22     94s] 	Unplaced Pins                      : 0
+[03/04 21:23:22     94s] 	Constant/Spl Net Pins              : 0
+[03/04 21:23:22     94s] 	Internal Pins                      : 0
+[03/04 21:23:22     94s] 	Legally Assigned Feedthrough Pins  : 0
+[03/04 21:23:22     94s] 	Illegally Assigned Feedthrough Pins: 0
+[03/04 21:23:22     94s] End of Summary report
+[03/04 21:23:22     94s] 175 pin(s) of the Partition fullchip were legalized.
+[03/04 21:23:22     94s] End pin legalization for the partition [fullchip].
+[03/04 21:23:22     94s] 
+[03/04 21:23:22     94s] #% End legalizePin (date=03/04 21:23:22, total cpu=0:00:00.1, real=0:00:01.0, peak res=953.1M, current mem=953.1M)
+[03/04 21:23:28     95s] <CMD> checkPinAssignment
+[03/04 21:23:28     95s] #% Begin checkPinAssignment (date=03/04 21:23:28, mem=953.1M)
+[03/04 21:23:28     95s] Checking pins of top cell fullchip ... completed
+[03/04 21:23:28     95s] 
+[03/04 21:23:28     95s] ===========================================================================================================================
+[03/04 21:23:28     95s]                                                 checkPinAssignment Summary
+[03/04 21:23:28     95s] ===========================================================================================================================
+[03/04 21:23:28     95s] Partition   | pads  | pins   | legal  | illegal | internal | internal illegal | FT     | FT illegal | constant | unplaced |
+[03/04 21:23:28     95s] ===========================================================================================================================
+[03/04 21:23:28     95s] fullchip    |     0 |    258 |    258 |       0 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:23:28     95s] ===========================================================================================================================
+[03/04 21:23:28     95s] TOTAL       |     0 |    258 |    258 |       0 |        0 |                0 |      0 |          0 |        0 |        0 |
+[03/04 21:23:28     95s] ===========================================================================================================================
+[03/04 21:23:28     95s] #% End checkPinAssignment (date=03/04 21:23:28, total cpu=0:00:00.1, real=0:00:00.0, peak res=953.1M, current mem=953.1M)
+[03/04 21:23:31     96s] <CMD> zoomBox 556.98650 222.67050 586.42950 250.16150
+[03/04 21:23:31     96s] <CMD> zoomBox 515.76950 188.80900 623.82400 289.69950
+[03/04 21:23:32     96s] <CMD> zoomBox 342.98750 49.00800 739.53450 419.26450
+[03/04 21:23:32     96s] <CMD> zoomBox -96.91750 -361.65000 1358.35350 997.13900
+[03/04 21:23:33     96s] <CMD> zoomBox -2462.88950 -2136.18100 2877.74350 2850.37700
+[03/04 21:23:33     96s] <CMD> zoomBox -801.92750 -1052.88400 1212.29050 827.79450
+[03/04 21:23:34     96s] <CMD> zoomBox -141.14900 -498.38450 618.51300 210.91300
+[03/04 21:23:34     97s] <CMD> zoomBox 163.02400 -189.99450 370.02550 3.28300
+[03/04 21:23:35     97s] <CMD> zoomBox -121.78700 -584.02900 637.87900 125.27250
+[03/04 21:23:36     97s] <CMD> zoomBox 92.57150 -233.92150 379.08000 33.59200
+[03/04 21:23:37     97s] <CMD> zoomBox 174.15000 -98.22850 282.20750 2.66500
+[03/04 21:23:38     97s] <CMD> zoomBox 97.24500 -251.37900 383.75950 16.14000
+[03/04 21:23:39     98s] <CMD> zoomBox 174.80550 -91.47450 282.86450 9.42050
+[03/04 21:23:39     98s] <CMD> zoomBox 203.80850 -31.11200 244.56400 6.94150
+[03/04 21:23:40     98s] <CMD> zoomBox 212.87700 -10.23900 228.24850 4.11350
+[03/04 21:23:40     98s] <CMD> zoomBox 216.09550 -2.44250 221.89300 2.97050
+[03/04 21:23:41     98s] <CMD> zoomBox 217.36450 -0.06900 219.55200 1.97350
+[03/04 21:23:42     99s] <CMD> selectPhyPin 218.0500 0.0000 218.1500 0.5200 2 {pmem_out[2]}
+[03/04 21:23:46     99s] <CMD> setLayerPreference M5 -isVisible 0
+[03/04 21:23:47    100s] <CMD> setLayerPreference M5 -isVisible 1
+[03/04 21:23:50    100s] <CMD> setLayerPreference M2 -isVisible 0
+[03/04 21:23:51    100s] <CMD> setLayerPreference M2 -isVisible 1
+[03/04 21:23:51    101s] <CMD> zoomBox 191.56650 -13.28350 221.03600 14.23200
+[03/04 21:23:52    101s] <CMD> zoomBox 166.82700 -26.24700 223.28200 26.46500
+[03/04 21:23:52    101s] <CMD> zoomBox 130.64950 -50.90600 238.80050 50.07500
+[03/04 21:23:52    101s] <CMD> zoomBox -64.26550 -204.91600 332.63550 165.67100
+[03/04 21:23:54    101s] <CMD> zoomBox -224.28950 -948.44000 1232.27900 411.56050
+[03/04 21:23:55    102s] <CMD> zoomBox -93.97050 -176.54850 455.37500 336.37650
+[03/04 21:23:55    102s] <CMD> zoomBox -56.25200 46.86500 230.51000 314.61500
+[03/04 21:23:56    102s] <CMD> zoomBox -19.37000 222.06050 58.77100 295.02100
+[03/04 21:23:56    102s] <CMD> zoomBox -9.15300 259.61600 20.31850 287.13350
+[03/04 21:23:57    102s] <CMD> zoomBox -3.03300 273.23800 4.99800 280.73650
+[03/04 21:23:58    102s] <CMD> deselectAll
+[03/04 21:23:58    102s] <CMD> selectPhyPin 0.0000 277.9500 0.5200 278.0500 3 {mem_in[15]}
+[03/04 21:24:00    103s] <CMD> setLayerPreference M3 -isVisible 0
+[03/04 21:24:01    103s] <CMD> setLayerPreference M3 -isVisible 1
+[03/04 21:25:54    124s] <CMD> deselectAll
+[03/04 21:25:57    125s] <CMD> setLayerPreference M3 -isVisible 0
+[03/04 21:25:57    125s] <CMD> setLayerPreference M3 -isVisible 1
+[03/04 21:27:08    138s] <CMD> zoomBox -14.98350 269.04600 14.49150 296.56700
+[03/04 21:27:08    138s] <CMD> zoomBox -38.49350 256.06750 39.66050 329.04000
+[03/04 21:27:09    138s] <CMD> zoomBox -101.72200 222.07600 105.50250 415.56200
+[03/04 21:27:09    138s] <CMD> zoomBox -231.02000 195.86650 165.95800 566.52550
+[03/04 21:27:10    139s] <CMD> zoomBox -604.28000 3.89600 448.29550 986.68750
+[03/04 21:27:11    139s] <CMD> zoomBox -2162.81050 -1031.17650 1699.98550 2575.52250
+[03/04 21:27:11    139s] <CMD> zoomBox -1030.49250 -576.62450 985.91100 1306.09500
+[03/04 21:27:12    139s] <CMD> zoomBox -114.66100 -163.28550 434.79050 349.73850
+[03/04 21:27:12    139s] <CMD> zoomBox 98.99350 -66.85850 306.22000 126.62900
+[03/04 21:27:13    139s] <CMD> zoomBox 179.57350 -30.49150 257.72950 42.48300
+[03/04 21:27:13    139s] <CMD> zoomBox 209.96400 -16.77550 239.44150 10.74750
+[03/04 21:27:14    140s] <CMD> zoomBox 217.48900 -10.41900 232.87700 3.94900
+[03/04 21:27:18    140s] <CMD> setLayerPreference M2 -isVisible 0
+[03/04 21:27:19    141s] <CMD> setLayerPreference M2 -isVisible 1
+[03/04 21:28:06    150s] 
+[03/04 21:28:06    150s] *** Memory Usage v#1 (Current mem = 1243.926M, initial mem = 283.785M) ***
+[03/04 21:28:06    150s] 
+[03/04 21:28:06    150s] *** Summary of all messages that are not suppressed in this session:
+[03/04 21:28:06    150s] Severity  ID               Count  Summary                                  
+[03/04 21:28:06    150s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[03/04 21:28:06    150s] WARNING   IMPFP-325            1  Floorplan of the design is resized. All ...
+[03/04 21:28:06    150s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[03/04 21:28:06    150s] WARNING   IMPEXT-2710          2  Basic Cap table for layer M%d is ignored...
+[03/04 21:28:06    150s] WARNING   IMPEXT-2760          2  Layer M%d specified in the cap table is ...
+[03/04 21:28:06    150s] WARNING   IMPEXT-2771          2  Via %s specified in the cap table is ign...
+[03/04 21:28:06    150s] WARNING   IMPEXT-2801          2  Resistance values are not provided in th...
+[03/04 21:28:06    150s] WARNING   IMPVL-159         1622  Pin '%s' of cell '%s' is defined in LEF ...
+[03/04 21:28:06    150s] WARNING   IMPDC-1629           1  The default delay limit was set to %d. T...
+[03/04 21:28:06    150s] WARNING   IMPSR-1254           2  Unable to connect the specified objects,...
+[03/04 21:28:06    150s] WARNING   IMPSR-1256           2  Unable to find any CORE class pad pin of...
+[03/04 21:28:06    150s] WARNING   TCLNL-330            1  set_input_delay on clock root '%s' is no...
+[03/04 21:28:06    150s] *** Message Summary: 1642 warning(s), 0 error(s)
+[03/04 21:28:06    150s] 
+[03/04 21:28:06    150s] --- Ending "Innovus" (totcpu=0:02:30, real=0:10:27, mem=1243.9M) ---

@@ -68,20 +68,7 @@ We developed a Python script to randomly generate Q and K matrices for thorough 
 
 ---
 
-## 4. Challenges Faced
-
-### 4.1 X-Propagation in Gate-Level Simulation
-Initially, we observed X-propagation due to uninitialized flip-flops in hierarchical synthesis. We temporarily used manual initialization scripts in Xcelium. Eventually, we switched to flattened synthesis, resolving the issue cleanly.
-
-### 4.2 Power Analysis Discrepancies
-Post-PnR power analysis showed a 10× drop compared to post-synthesis numbers, likely due to missing or incorrectly modeled clock power. We suspect the SDC needs additional constraints to account for clock gating effects.
-
-### 4.3 SDC File Updates
-We updated our SDC files to handle clock domain crossings and multicycle paths, particularly for handshake logic and the SFP normalizer divider.
-
----
-
-## 5. Deliverables
+## 4. Deliverables
 
 We provided all relevant files for each part of the project:
 
